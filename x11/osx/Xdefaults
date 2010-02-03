@@ -1,0 +1,71 @@
+URxvt*color0: #000000
+URxvt*color1: #ff6c60
+URxvt*color2: #a8ff60
+URxvt*color3: #ffffb6
+URxvt*color4: #96cbfe
+URxvt*color5: #ff73fd
+URxvt*color6: #c6c5fe
+URxvt*color7: #eeeeee
+URxvt*color8: #7c7c7c
+URxvt*color9: #ffb6b0
+URxvt*color10: #ceffac
+URxvt*color11: #ffffcc
+URxvt*color12: #b6dcff
+URxvt*color13: #ff9cfe
+URxvt*color14: #dfdffe
+URxvt*color15: #ffffff
+
+urxvt*geometry: 179x51
+urxvt*background: #000000
+urxvt*foreground: White
+urxvt*font:     xft:terminusbold:pixelsize=14:antialias=true
+urxvt*scrollBar: false
+urxvt*scrollBar_floating:  true
+urxvt*scrollBar_right: false
+urxvt*scrollColor:   #000000
+urxvt*saveLines:   10000
+urxvt*cursorColor:   #d8d8d8
+urxvt*loginShell: true
+
+XTerm*color0: #000000
+XTerm*color1: #ff6c60
+XTerm*color2: #a8ff60
+XTerm*color3: #ffffb6
+XTerm*color4: #96cbfe
+XTerm*color5: #ff73fd
+XTerm*color6: #c6c5fe
+XTerm*color7: #eeeeee
+XTerm*color8: #7c7c7c
+XTerm*color9: #ffb6b0
+XTerm*color10: #ceffac
+XTerm*color11: #ffffcc
+XTerm*color12: #b6dcff
+XTerm*color13: #ff9cfe
+XTerm*color14: #dfdffe
+XTerm*color15: #ffffff
+
+XTerm*customization: -color
+XTerm*visualBell: false
+XTerm*colorMode: on
+XTerm*colorBD: lightyellow
+XTerm*colorUL: yellow
+XTerm*colorULMode: on
+XTerm*dynamicColors: true
+XTerm*highlightSelection: true
+
+XTerm*background: Black
+XTerm*foreground: White
+
+XTerm*faceName: terminusbold:pixelsize=14:antialias=true
+
+XTerm*geometry: 144x41
+XTerm*scrollBar: false
+
+XTerm*VT100.metaSendsEscape: True
+XTerm*VT100.backarrowKeyIsErase: False
+
+XTerm*VT100.Translations: #override \
+Meta <KeyPress> W: quit() \n\
+Meta <KeyPress> V: insert-selection(CLIPBOARD,PRIMARY,CUT_BUFFER0) \n\
+<BtnUp>: select-end(CLIPBOARD,PRIMARY,CUT_BUFFER0) \n\
+
