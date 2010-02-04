@@ -3,7 +3,6 @@
 
 alias reloadbash='source ~/.bash_profile'
 
-export TERM=xterm-color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1 
 
@@ -36,8 +35,6 @@ alias colorslist="set | egrep 'COLOR_\w*'"  # lists all the colors
 export HISTCONTROL=ignoredups
 export HISTFILESIZE=3000
 export HISTIGNORE="ls:cd:[bf]g:exit:..:...:ll:lla"
-alias h=history
-alias hf='history | g'
 
 shopt -s checkwinsize # After each command, checks the windows size and changes lines and columns
 
@@ -61,7 +58,6 @@ export PS4='+'     # Prompt 4
 
 alias ..='cd ..'
 alias ...='cd .. ; cd ..'
-cl() { cd $1; ls -la; } 
 
 export EDITOR='vim'  #Command line
 export GIT_EDITOR='vim'
@@ -81,12 +77,10 @@ alias df='df -h' # Show disk usage
 
 alias untar="tar xvzf"
 
-alias cp_folder="cp -Rpv" #copies folder and all sub files and folders, preserving security and dates
-
 # SSH aliases
-alias ecelinux="ssh edgolden@ecelinux.uwaterloo.ca"
-alias thyme="ssh naveg.dynalias.com"
-alias dhost="ssh jubilee.dreamhost.com"
+alias ecelinux="ssh edgolden@ecelinux2.uwaterloo.ca"
+alias thyme="ssh naveg@naveg.dynalias.com"
+alias dhost="ssh naveg@jubilee.dreamhost.com"
 
 alias pgstart="sudo su postgres -c 'pg_ctl -D /Users/DB/postgresql -l /Users/DB/postgresql/logfile start'"
 alias pgstop="sudo su postgres -c 'pg_ctl -D /Users/DB/postgresql stop -m fast'"
