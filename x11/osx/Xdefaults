@@ -23,12 +23,7 @@ XTerm*background: Black
 XTerm*foreground: White
 
 XTerm*scrollBar: false
-XTerm*customization: -color
 XTerm*visualBell: false
-XTerm*colorMode: on
-XTerm*colorBD: lightyellow
-XTerm*colorUL: yellow
-XTerm*colorULMode: on
 XTerm*dynamicColors: true
 XTerm*highlightSelection: true
 XTerm*loginShell: true
