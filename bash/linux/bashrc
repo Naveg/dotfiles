@@ -6,7 +6,8 @@ alias reloadbash='source ~/.bash_profile'
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1 
 
-alias ls='ls -G'  # OS-X SPECIFIC - the -G command in OS-X is for colors, in Linux it's no groups
+alias ls='ls --color=auto'
+export LS_COLORS='di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.rb=90'  #LS_COLORS is not supported by the default ls command in OS-X
 
 export COLOR_NC='\033[0m' # No Color
 export COLOR_WHITE='\033[1;37m'
@@ -40,9 +41,6 @@ bind "set show-all-if-ambiguous On" # show list automatically, without double ta
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
-if [ -f /opt/local/etc/bash_completion ]; then
-    . /opt/local/etc/bash_completion
-fi
 
 export PS1="\[${COLOR_PURPLE}\][\h]\[${COLOR_GREEN}\][\W] > \[${COLOR_NC}\]"  # Primary prompt with only a path
 export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*} ${PWD}"; echo -ne "\007"'  # user@host path
@@ -61,7 +59,9 @@ alias ll='ls -hl'
 alias la='ls -a'
 alias lla='ls -lah'
 
-alias top='top -o cpu' # os x
+if [ "$OS" = "linux" ] ; then
+    alias processes_all='ps -aulx'
+fi
 
 alias systail='tail -f /var/log/system.log'
 alias df='df -h' # Show disk usage
@@ -74,6 +74,3 @@ alias ecelinux="ssh edgolden@ecelinux2.uwaterloo.ca"
 alias thyme="ssh naveg@naveg.dynalias.com"
 alias dhost="ssh naveg@jubilee.dreamhost.com"
 
-alias pgstart="sudo su postgres -c 'pg_ctl -D /Users/DB/postgresql -l /Users/DB/postgresql/logfile start'"
-alias pgstop="sudo su postgres -c 'pg_ctl -D /Users/DB/postgresql stop -m fast'"
-alias pgstatus="sudo su postgres -c 'pg_ctl status -D /Users/DB/postgresql'"

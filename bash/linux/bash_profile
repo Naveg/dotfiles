@@ -1,0 +1,25 @@
+# Based on Todd Werth's .bashrc
+# See http://blog.infinitered.com/entries/show/4
+
+export OS=`uname -s | sed -e 's/  */-/g;y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/'`
+export OSVERSION=`uname -r`; OSVERSION=`expr "$OSVERSION" : '[^0-9]*\([0-9]*\.[0-9]*\)'`
+export MACHINE=`uname -m | sed -e 's/  */-/g;y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/'`
+export PLATFORM="$MACHINE-$OS-$OSVERSION"
+
+if [ -d ~/bin ]; then
+    export PATH=:~/bin:$PATH  # add your bin folder to the path, if you have it.  It's a good place to add all your scripts
+fi
+
+export CFLAGS="-I/local/include -I/opt/local/include -L/local/lib -L/opt/local/lib"
+export CPPFLAGS="$CFLAGS"
+export LDFLAGS="-L/local/lib -L/opt/local/lib"
+
+export PKG_CONFIG_PATH="/usr/lib/pkgconfig:/usr/X11R6/lib/pkgconfig:/local/lib/pkgconfig:/opt/local/lib/pkgconfig"
+export ACLOCAL_FLAGS="-I /local/share/aclocal -I /opt/local/share/aclocal -I /usr/share/aclocal"
+
+source ~/.bashrc
+
+echo -e "Kernel Information: " `uname -smr`
+echo -ne "${COLOR_GRAY}Uptime: "; uptime
+echo -ne "${COLOR_GRAY}Server time is: "; date
+
