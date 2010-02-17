@@ -74,6 +74,7 @@ fi
 
 alias systail='tail -f /var/log/system.log'
 alias df='df -h' # Show disk usage
+alias du='du -hcs *'
 
 alias untar="tar xvzf"
 
