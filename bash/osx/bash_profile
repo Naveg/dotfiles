@@ -7,7 +7,7 @@ export MACHINE=`uname -m | sed -e 's/  */-/g;y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdef
 export PLATFORM="$MACHINE-$OS-$OSVERSION"
 
 if [ "$OS" = "darwin" ] ; then
-    export PATH=/opt/local/bin:/opt/local/sbin::/opt/local/Library/Frameworks/Python.framework/Versions/2.6/bin:/opt/local/lib/postgresql84/bin/:/opt/local/apache2/bin/:$PATH  
+    export PATH=/opt/local/bin:/opt/local/sbin:/opt/local/Library/Frameworks/Python.framework/Versions/2.6/bin:/opt/local/lib/postgresql84/bin:/opt/local/apache2/bin:/opt/local/lib/mysql5/bin:$PATH  
     export PYTHONPATH=/opt/local/lib/python2.6/site-packages:$PYTHONPATH
     export MANPATH=/opt/local/share/man:$MANPATH
 fi

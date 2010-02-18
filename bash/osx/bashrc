@@ -77,3 +77,6 @@ alias dhost="ssh naveg@jubilee.dreamhost.com"
 alias pgstart="sudo su postgres -c 'pg_ctl -D /Users/DB/postgresql -l /Users/DB/postgresql/logfile start'"
 alias pgstop="sudo su postgres -c 'pg_ctl -D /Users/DB/postgresql stop -m fast'"
 alias pgstatus="sudo su postgres -c 'pg_ctl status -D /Users/DB/postgresql'"
+
+alias mysqlstart='sudo /opt/local/bin/mysqld_safe5 &'
+alias mysqlstop='/opt/local/bin/mysqladmin5 -u naveg shutdown'
