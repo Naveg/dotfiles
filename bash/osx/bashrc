@@ -80,3 +80,5 @@ alias pgstatus="sudo su postgres -c 'pg_ctl status -D /Users/DB/postgresql'"
 
 alias mysqlstart='sudo /opt/local/bin/mysqld_safe5 &'
 alias mysqlstop='/opt/local/bin/mysqladmin5 -u naveg shutdown'
+
+alias update-eggs='sudo yolk -U | cut -d ' ' -f 2 | xargs sudo easy_install -U'
