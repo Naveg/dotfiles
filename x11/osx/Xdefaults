@@ -91,14 +91,23 @@ Xft*hinting: full
 !*color7:    #ccccc6
 !*color15:   #f8f8f2
 
+URxvt*font: xft:Monaco:bold:size=8
+URxvt*scrollBar: false
+URxvt*letterSpace: -2
+
+URxvt.perl-ext-common: macosx-clipboard
+URxvt.keysym.M-c: perl:macosx-clipboard:copy
+URxvt.keysym.M-v: perl:macosx-clipboard:paste
+
+URxvt*VT100.metaSendsEscape: True
+URxvt*VT100.backarrowKeyIsErase: False
+
 XTerm*scrollBar: false
 XTerm*visualBell: false
 XTerm*dynamicColors: true
 XTerm*highlightSelection: true
 XTerm*loginShell: true
-XTerm*termName: xterm
-
-XTerm*faceName: monaco:bold:pixelsize=12:antialias=true
+XTerm*faceName: Monaco:bold:size=8:antialias=true
 
 XTerm*VT100.metaSendsEscape: True
 XTerm*VT100.backarrowKeyIsErase: False

@@ -14,7 +14,10 @@ fi
 
 #source ~/.bash_profile
 
-xset b off 
-xset b 0 0 0 
+xset b off
+xset b 0 0 0
+
+export RXVT_SOCKET=$HOME/.rxvt_socket
+urxvtd -o &
 
 /opt/local/bin/awesome

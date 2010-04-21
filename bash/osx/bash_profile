@@ -7,9 +7,17 @@ export MACHINE=`uname -m | sed -e 's/  */-/g;y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdef
 export PLATFORM="$MACHINE-$OS-$OSVERSION"
 
 if [ "$OS" = "darwin" ] ; then
-    export PATH=/opt/local/bin:/opt/local/sbin:/opt/local/Library/Frameworks/Python.framework/Versions/2.6/bin:/opt/local/lib/postgresql84/bin:/opt/local/apache2/bin:/opt/local/lib/mysql5/bin:$PATH  
+    # gentoo prefix
+    export EPREFIX=$HOME/Library/gentoo
+    # path to python
+    export PATH=/opt/local/Library/Frameworks/Python.framework/Versions/2.6/bin:$PATH
+    # path to databases and apache
+    export PATH=/opt/local/lib/postgresql84/bin:/opt/local/apache2/bin:/opt/local/lib/mysql5/bin:$PATH  
+    # path to macports stuff
+    export PATH=/opt/local/bin:/opt/local/sbin:$PATH
     export PYTHONPATH=/opt/local/lib/python2.6/site-packages:$PYTHONPATH
     export MANPATH=/opt/local/share/man:$MANPATH
+    export PERL5LIB=/opt/local/lib/perl5/site_perl/5.8.9:$PERL5LIB
 fi
 
 if [ -d ~/bin ]; then
