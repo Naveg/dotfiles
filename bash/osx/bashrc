@@ -73,6 +73,7 @@ alias untar="tar xvzf"
 alias ecelinux="ssh edgolden@ecelinux2.uwaterloo.ca"
 alias thyme="ssh naveg@naveg.dynalias.com"
 alias dhost="ssh naveg@jubilee.dreamhost.com"
+alias dtunnel="ssh -v -N -D 8080 jubilee.dreamhost.com"
 
 alias pgstart="sudo su postgres -c 'pg_ctl -D /Users/DB/postgresql -l /Users/DB/postgresql/logfile start'"
 alias pgstop="sudo su postgres -c 'pg_ctl -D /Users/DB/postgresql stop -m fast'"

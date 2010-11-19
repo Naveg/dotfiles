@@ -37,9 +37,9 @@ Xft*hinting: full
 *color15: #ffffff
 
 *background: #000000
-*foreground: #cccccc
+*foreground:  #cccccc
 
-! IR_BLACK
+!! IR_BLACK
 !*color0: #000000
 !*color1: #ff6c60
 !*color2: #a8ff60
@@ -56,7 +56,7 @@ Xft*hinting: full
 !*color13: #ff9cfe
 !*color14: #dfdffe
 !*color15: #ffffff
-
+!
 !*background: #000000
 !*foreground: #ffffff
 
@@ -91,9 +91,10 @@ Xft*hinting: full
 !*color7:    #ccccc6
 !*color15:   #f8f8f2
 
-URxvt*font: xft:Monaco:bold:size=8
+URxvt*font: xft:Monaco:bold:size=10
 URxvt*scrollBar: false
-URxvt*letterSpace: -2
+URxvt*scrollTtyOutput: false
+URxvt*letterSpace: -1
 
 URxvt.perl-ext-common: macosx-clipboard
 URxvt.keysym.M-c: perl:macosx-clipboard:copy
