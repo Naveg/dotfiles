@@ -1,14 +1,12 @@
-# Based on Todd Werth's .bashrc
-# See http://blog.infinitered.com/entries/show/4
-
-alias reloadbash='source ~/.bash_profile'
+# bashrc
 
 export TERM=xterm-256color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1 
 
-alias ls='ls --color=auto'
-# export LS_COLORS='di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35'  #LS_COLORS is not supported by the default ls command in OS-X
+export HISTCONTROL=ignoredups
+export HISTFILESIZE=3000
+export HISTIGNORE="ls:cd:[bf]g:exit:..:...:ll:lla"
 
 export COLOR_NC='\033[0m' # No Color
 export COLOR_WHITE='\033[1;37m'
@@ -27,11 +25,17 @@ export COLOR_BROWN='\033[0;33m'
 export COLOR_YELLOW='\033[1;33m'
 export COLOR_GRAY='\033[1;30m'
 export COLOR_LIGHT_GRAY='\033[0;37m' 
-alias colorslist="set | egrep 'COLOR_\w*'"  # lists all the colors
 
-export HISTCONTROL=ignoredups
-export HISTFILESIZE=3000
-export HISTIGNORE="ls:cd:[bf]g:exit:..:...:ll:lla"
+export LESS_TERMCAP_mb=$'\e[1;37m'
+export LESS_TERMCAP_md=$'\e[1;37m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[1;47;30m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[0;36m'
+function env() {
+    exec /usr/bin/env "$@" | grep -v ^LESS_TERMCAP_
+}
 
 shopt -s checkwinsize # After each command, checks the windows size and changes lines and columns
 
@@ -44,34 +48,10 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 export PS1="\[${COLOR_PURPLE}\][\h]\[${COLOR_GREEN}\][\W] > \[${COLOR_NC}\]"  # Primary prompt with only a path
-export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*} ${PWD}"; echo -ne "\007"'  # user@host path
 
 export PS2='> '    # Secondary prompt
 export PS3='#? '   # Prompt 3
 export PS4='+'     # Prompt 4
 
-alias ..='cd ..'
-alias ...='cd .. ; cd ..'
-
 export EDITOR='vim'  #Command line
 export GIT_EDITOR='vim'
-
-alias ll='ls -hl'
-alias la='ls -a'
-alias lla='ls -lah'
-
-if [ "$OS" = "linux" ] ; then
-    alias processes_all='ps -aulx'
-fi
-
-alias systail='tail -f /var/log/system.log'
-alias df='df -h' # Show disk usage
-alias du='du -hcs *'
-
-alias untar="tar xvzf"
-
-# SSH aliases
-alias ecelinux="ssh edgolden@ecelinux2.uwaterloo.ca"
-alias thyme="ssh naveg@naveg.dynalias.com"
-alias dhost="ssh naveg@jubilee.dreamhost.com"
-

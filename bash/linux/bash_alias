@@ -1,0 +1,32 @@
+# bash aliases
+
+# color things
+alias ls='ls --color=auto'
+alias colorslist="set | egrep 'COLOR_\w*'"  # lists all the colors
+alias pacman='pacman-color'
+
+# basic shell commands
+alias ..='cd ..'
+alias ...='cd .. ; cd ..'
+
+alias ll='ls -hl'
+alias la='ls -a'
+alias lla='ls -lah'
+alias lt='ls -tlh'
+alias lta='ls -tlha'
+
+alias sudo='sudo '
+
+alias df='df -h' # Show disk usage
+alias du='du -hcs *'
+
+# shortcuts
+alias reloadbash='source ~/.bash_profile'
+alias systail='tail -f /var/log/system.log'
+alias untar="tar xvzf"
+
+# ssh servers
+alias ecelinux="ssh edgolden@ecelinux2.uwaterloo.ca"
+alias thyme="ssh naveg@naveg.dynalias.com"
+alias dhost="ssh naveg@jubilee.dreamhost.com"
+
