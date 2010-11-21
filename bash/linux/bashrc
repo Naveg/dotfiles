@@ -1,12 +1,27 @@
-# bashrc
+# .bashrc
+# Author: Evan Goldenberg
 
-export TERM=xterm-256color
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+if [ -f ~/bin ]; then
+    export PATH=:~/bin:$PATH
+fi
+
+if [ -f /usr/share/perl5/vendor_perl/auto/share/dist/Cope ]; then
+    export PATH=:/usr/share/perl5/vendor_perl/auto/share/dist/Cope:$PATH
+fi
+
+export EDITOR='vim'
+
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
-export CLICOLOR=1 
 
-export HISTCONTROL=ignoredups
+export HISTCONTROL=ignoreboth
 export HISTFILESIZE=3000
 export HISTIGNORE="ls:cd:[bf]g:exit:..:...:ll:lla"
+shopt -s histappend
 
 export COLOR_NC='\033[0m' # No Color
 export COLOR_WHITE='\033[1;37m'
@@ -33,25 +48,46 @@ export LESS_TERMCAP_se=$'\e[0m'
 export LESS_TERMCAP_so=$'\e[1;47;30m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[0;36m'
+
 function env() {
     exec /usr/bin/env "$@" | grep -v ^LESS_TERMCAP_
 }
 
-shopt -s checkwinsize # After each command, checks the windows size and changes lines and columns
+extract () {
+    if [ -f $1 ] ; then
+        case $1 in
+            *.tar.bz2)   tar xvjf $1    ;;
+            *.tar.gz)    tar xvzf $1    ;;
+            *.bz2)       bunzip2 $1     ;;
+            *.rar)       unrar x $1     ;;
+            *.gz)        gunzip $1      ;;
+            *.tar)       tar xvf $1     ;;
+            *.tbz2)      tar xvjf $1    ;;
+            *.tgz)       tar xvzf $1    ;;
+            *.zip)       unzip $1       ;;
+            *.Z)         uncompress $1  ;;
+            *.7z)        7z x $1        ;;
+            *)           echo "don't know how to extract '$1'..." ;;
+        esac
+    else
+        echo "'$1' is not a valid file!"
+    fi
+}
 
-bind "set completion-ignore-case on" # note: bind used instead of sticking these in .inputrc
-bind "set bell-style none" # no bell
-bind "set show-all-if-ambiguous On" # show list automatically, without double tab
+shopt -s checkwinsize
+
+bind "set completion-ignore-case on"
+bind "set bell-style none"
+bind "set show-all-if-ambiguous On"
+
+export PS1="\[${COLOR_PURPLE}\][\h]\[${COLOR_GREEN}\][\W] > \[${COLOR_NC}\]"  # Primary prompt with only a path
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-export PS1="\[${COLOR_PURPLE}\][\h]\[${COLOR_GREEN}\][\W] > \[${COLOR_NC}\]"  # Primary prompt with only a path
-
-export PS2='> '    # Secondary prompt
-export PS3='#? '   # Prompt 3
-export PS4='+'     # Prompt 4
-
-export EDITOR='vim'  #Command line
-export GIT_EDITOR='vim'
+eval `keychain --eval --agents ssh id_rsa`
