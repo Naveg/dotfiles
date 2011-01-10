@@ -43,14 +43,13 @@ set wildmode=list:longest " turn on wild mode huge list
 set background=dark
 set incsearch " BUT do highlight as you type you search phrase
 set laststatus=2 " always show the status line
-set lazyredraw " do not redraw while running macros
-set linespace=0 " don't insert any extra pixel lines betweens rows
+set linespace=0
 set nolist " we do what to show tabs, to ensure we get them out of my files
 set matchtime=5 " how many tenths of a second to blink matching brackets for
 set nohlsearch " do not highlight searched for phrases
 set nostartofline " leave my cursor where it was
 set visualbell " don't blink
-set t_vb=
+set vb t_vb=
 set number " turn on line numbers
 set numberwidth=5 " We are good up to 99999 lines
 set report=0 " tell us when anything is changed via :...
@@ -84,45 +83,5 @@ set smartcase " if there are caps, go case-sensitive
 set shiftwidth=4 " auto-indent amount when using cindent, >>, << and stuff like that
 set softtabstop=4 " when hitting tab or backspace, how many spaces should a tab be (see expandtab)
 set tabstop=8 " real tabs should be 8, and they will show with set list on
-
-set foldenable " Turn on folding
-set foldmarker={,} " Fold C style code (only use this as default if you use a high foldlevel)
-set foldmethod=marker " Fold on the marker
-set foldlevel=100 " Don't autofold anything (but I can still fold manually)
-set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds 
-function SimpleFoldText() " {
-    return getline(v:foldstart).' '
-endfunction " }
-set foldtext=SimpleFoldText() " Custom fold text function (cleaner than default)
-
-let b:match_ignorecase = 1 " case is stupid
-let perl_extended_vars=1 " highlight advanced perl vars inside strings
-
-let Tlist_Auto_Open=0 " let the tag list open automagically
-let Tlist_Compact_Format = 1 " show small menu
-let Tlist_Ctags_Cmd = 'ctags' " location of ctags
-let Tlist_Enable_Fold_Column = 0 " do show folding tree
-let Tlist_Exist_OnlyWindow = 1 " if you are the last, kill yourself
-let Tlist_File_Fold_Auto_Close = 0 " fold closed other trees
-let Tlist_Sort_Type = "name" " order by 
-let Tlist_Use_Right_Window = 1 " split to the right side of the screen
-let Tlist_WinWidth = 40 " 40 cols wide, so i can (almost always) read my functions
-
-let tlist_php_settings = 'php;c:class;d:constant;f:function' 
-
-noremap <S-space> <C-b>
-noremap <space> <C-f>
-nmap <C-tab> :FuzzyFinderFile<CR>
-nmap <tab> :FuzzyFinderBuffer<CR>
-
-map <C-left> <ESC><C-W>h<RETURN>
-map <C-right> <ESC><C-W>l<RETURN>
-map <C-up> <ESC><C-W>k<RETURN>
-map <C-down> <ESC><C-W>j<RETURN>
-
-map <M-left> <ESC>:NERDTreeToggle<RETURN>
-map <M-right> <ESC>:Tlist<RETURN>
-map <M-up> <ESC>:NERDTreeToggle<RETURN>
-map <M-down> <ESC>:Tlist<RETURN>
 
 set t_Co=256
