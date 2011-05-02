@@ -18,6 +18,6 @@ xset b off
 xset b 0 0 0
 
 export RXVT_SOCKET=$HOME/.rxvt_socket
-urxvtd -o &
+# urxvtd -o &
 
-/opt/local/bin/awesome
+# /opt/local/bin/awesome

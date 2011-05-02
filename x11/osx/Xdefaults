@@ -59,7 +59,7 @@ Xft*hinting: full
 !
 !*background: #000000
 !*foreground: #ffffff
-
+!
 !! terminal colours
 !*foreground:#a0a0a0
 !*background:#1b1d1e

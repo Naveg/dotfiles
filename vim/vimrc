@@ -14,6 +14,7 @@ set cpoptions=aABceFsmq
 "             |+-- :write updates alternative file name
 "             +-- :read updates alternative file name
 syntax on " syntax highlighting on
+au BufNewFile,BufRead *.pde set filetype=c
 
 filetype plugin indent on " load filetype plugins/indent settings
 set backspace=indent,eol,start " make backspace a more flexible
