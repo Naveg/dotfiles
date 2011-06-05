@@ -96,7 +96,6 @@ Bundle 'mileszs/ack.vim'
 Bundle 'tpope/vim-markdown'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'fs111/pydoc.vim'
-Bundle 'kevinw/pyflakes-vim'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'minibufexpl.vim'
@@ -106,4 +105,10 @@ Bundle 'taglist.vim'
 let g:pep8_map='<leader>8'
 
 filetype plugin indent on
+
+" TagList
+nnoremap <silent> <F8> :TlistToggle<CR>
+let Tlist_Exit_OnlyWindow = 1
+let Tlist_Close_On_Select = 1
+let Tlist_GainFocus_On_ToggleOpen = 1
 
