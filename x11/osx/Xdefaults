@@ -93,8 +93,8 @@ Xft*hinting: full
 
 URxvt*font: xft:Monaco:bold:size=10
 URxvt*scrollBar: false
-URxvt*scrollTtyOutput: false
 URxvt*letterSpace: -1
+URxvt*geometry: 160x43
 
 URxvt.perl-ext-common: macosx-clipboard
 URxvt.keysym.M-c: perl:macosx-clipboard:copy
