@@ -1,66 +1,47 @@
-" Based on Robert Melton's .vimrc
-" http://robertmelton.com/
-
-set nocompatible " explicitly get out of vi-compatible mode
-set noexrc " don't use local version of .(g)vimrc, .exrc
-set cpoptions=aABceFsmq
-"             |||||||||
-"             ||||||||+-- When joining lines, leave the cursor between joined lines
-"             |||||||+-- When a new match is created (showmatch) pause for .5
-"             ||||||+-- Set buffer options when entering the buffer
-"             |||||+-- :write command updates current file name automatically add <CR> to the last line when using :@r
-"             |||+-- Searching continues at the end of the match at the cursor position
-"             ||+-- A backslash has no special meaning in mappings
-"             |+-- :write updates alternative file name
-"             +-- :read updates alternative file name
-syntax on " syntax highlighting on
 au BufNewFile,BufRead *.pde set filetype=c
 
-filetype plugin indent on " load filetype plugins/indent settings
-set backspace=indent,eol,start " make backspace a more flexible
-set backupdir=~/.vim/backup " where to put backup files
-set clipboard+=unnamed " share windows clipboard
-set directory=~/.vim/temp " directory to place swap files in
-set fileformats=unix,dos,mac " support all three, in this order
-set iskeyword+=_,$,@,%,# " none of these are word dividers 
-set mouse=a " use mouse everywhere
-set noerrorbells " don't make noise
-set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
-"             | | | | | | | | |
-"             | | | | | | | | +-- "]" Insert and Replace
-"             | | | | | | | +-- "[" Insert and Replace
-"             | | | | | | +-- "~" Normal
-"             | | | | | +-- <Right> Normal and Visual
-"             | | | | +-- <Left> Normal and Visual
-"             | | | +-- "l" Normal and Visual (not recommended)
-"             | | +-- "h" Normal and Visual (not recommended)
-"             | +-- <Space> Normal and Visual
-"             +-- <BS> Normal and Visual
-set wildmenu " turn on command line completion wild style
+set backup
+set backupdir=~/.vim/tmp/
+silent! set undodir=~/.vim/tmp/
+silent! set undofile
+
+set backspace=2
+set formatoptions=cornql
+set fileformats=unix,dos,mac
+set iskeyword+=_,$,@,%,#
+
+set hidden
+set nosplitbelow
+set splitright
+
+set mouse=a
+set noerrorbells
+set visualbell
+
+set wildmenu
 set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,
                 \*.jpg,*.gif,*.png
-set wildmode=list:longest " turn on wild mode huge list
+set wildmode=list:longest
 
-set background=dark
-set incsearch " BUT do highlight as you type you search phrase
-set laststatus=2 " always show the status line
-set linespace=0
-set nolist " we do what to show tabs, to ensure we get them out of my files
-set matchtime=5 " how many tenths of a second to blink matching brackets for
-set nohlsearch " do not highlight searched for phrases
-set nostartofline " leave my cursor where it was
-set visualbell " don't blink
+set nohlsearch
+set incsearch
+set showmatch
+set matchtime=5
+
+set nostartofline
 set vb t_vb=
-set number " turn on line numbers
-set numberwidth=5 " We are good up to 99999 lines
-set report=0 " tell us when anything is changed via :...
-set ruler " Always show current positions along the bottom
-set scrolloff=10 " Keep 10 lines (top/bottom) for scope
-set shortmess=aOstT " shortens messages to avoid 'press a key' prompt
-set showcmd " show the command being typed
-set showmatch " show matching brackets
-set sidescrolloff=10 " Keep 5 lines at the size
-set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
+set report=0
+
+set number
+set numberwidth=5
+set ruler
+set scrolloff=5
+set sidescrolloff=5
+set shortmess=aOstT
+set showcmd
+
+set laststatus=2
+set statusline=%f%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 "              | | | | |  |   |      |  |     |    |
 "              | | | | |  |   |      |  |     |    + current column
 "              | | | | |  |   |      |  |     +-- current line
@@ -74,15 +55,56 @@ set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 "              | +-- rodified flag in square brackets
 "              +-- full path to file in the buffer
 
-set completeopt= " don't use a pop up menu for completions
 set expandtab " no real tabs please!
-set ignorecase " case insensitive by default
-set infercase " case inferred by default
-set nowrap " do not wrap line
-set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
-set smartcase " if there are caps, go case-sensitive
+set autoindent
+set smarttab
 set shiftwidth=4 " auto-indent amount when using cindent, >>, << and stuff like that
 set softtabstop=4 " when hitting tab or backspace, how many spaces should a tab be (see expandtab)
 set tabstop=8 " real tabs should be 8, and they will show with set list on
 
+set ignorecase " case insensitive by default
+set infercase " case inferred by default
+set smartcase " if there are caps, go case-sensitive
+set nowrap " do not wrap line
+set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
+
+set foldmethod=indent
+set foldlevel=99
+
 set t_Co=256
+set background=dark
+colorscheme xoria256-mod
+syntax on
+
+if v:version < 700
+    finish
+endif
+
+if !isdirectory(expand("~/.vim/bundle/vundle/.git"))
+    !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+endif
+
+filetype off
+set runtimepath+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'msanders/snipmate.vim'
+Bundle 'tpope/vim-surround'
+Bundle 'ervandew/supertab'
+Bundle 'mileszs/ack.vim'
+Bundle 'tpope/vim-markdown'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'fs111/pydoc.vim'
+Bundle 'reinh/vim-makegreen'
+Bundle 'kevinw/pyflakes-vim'
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+Bundle 'minibufexpl.vim'
+Bundle 'pep8'
+Bundle 'taglist.vim'
+
+let g:pep8_map='<leader>8'
+
+filetype plugin indent on
+
