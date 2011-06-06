@@ -1,0 +1,25 @@
+[global_config]
+  enabled_plugins = APTURLHandler, LaunchpadBugURLHandler
+  window_state = maximise
+  tab_position = hidden
+  borderless = True
+[keybindings]
+[profiles]
+  [[default]]
+    palette = "#222222:#8e5c4e:#6c7e55:#b89f63:#4682b4:#956d9d:#4c8ea1:#cccccc:#454545:#cc896d:#c4df90:#ffe080:#6495ed:#c18fcb:#6bc1d0:#ffffff"
+    scrollback_lines = 5000
+    scrollbar_position = hidden
+    cursor_color = "#e1e1e1"
+    foreground_color = "#ffffff"
+    scroll_on_output = False
+    cursor_blink = False
+    scrollback_infinite = True
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]
