@@ -20,7 +20,7 @@ set visualbell
 
 set wildmenu
 set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,
-                \*.jpg,*.gif,*.png
+            \*.jpg,*.gif,*.png
 set wildmode=list:longest
 
 set nohlsearch
@@ -114,3 +114,13 @@ let Tlist_Exit_OnlyWindow = 1
 let Tlist_Close_On_Select = 1
 let Tlist_GainFocus_On_ToggleOpen = 1
 
+" Minibuf
+au BufEnter * call MyLastWindow()
+function! MyLastWindow()
+    if &buftype=="nofile"
+        " if this window is last on screen quit without warning
+        if winnr('$') < 2
+            quit!
+        endif
+    endif
+endfunction
