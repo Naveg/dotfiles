@@ -8,6 +8,7 @@ alias pacman='pacman-color'
 # basic shell commands
 alias ..='cd ..'
 alias ...='cd .. ; cd ..'
+alias sl='ls'
 
 alias ll='ls -hl'
 alias la='ls -a'
@@ -21,7 +22,7 @@ alias df='df -h' # Show disk usage
 alias du='du -hcs *'
 
 # shortcuts
-alias reloadbash='source ~/.bash_profile'
+alias reloadbash='source ~/.bashrc'
 alias systail='tail -f /var/log/system.log'
 alias untar="tar xvzf"
 
