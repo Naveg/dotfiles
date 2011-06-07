@@ -10,10 +10,6 @@ if [ -d ~/bin ]; then
     export PATH=:~/bin:$PATH
 fi
 
-if [ -f /usr/share/perl5/vendor_perl/auto/share/dist/Cope ]; then
-    export PATH=:/usr/share/perl5/vendor_perl/auto/share/dist/Cope:$PATH
-fi
-
 export EDITOR='vim'
 
 export GREP_OPTIONS='--color=auto -I -n' GREP_COLOR='1;32'

@@ -21,6 +21,8 @@ alias sudo='sudo '
 alias df='df -h' # Show disk usage
 alias du='du -hcs *'
 
+alias open='gnome-open'
+
 # shortcuts
 alias reloadbash='source ~/.bashrc'
 alias systail='tail -f /var/log/system.log'
