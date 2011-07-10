@@ -1,0 +1,34 @@
+# SSH aliases
+alias ecelinux="ssh edgolden@ecelinux2.uwaterloo.ca"
+alias thyme="ssh naveg@naveg.dynalias.com"
+alias dhost="ssh naveg@jubilee.dreamhost.com"
+alias paprika="ssh -X naveg@paprika.evangoldenberg.com"
+alias dtunnel="ssh -v -N -D 8080 jubilee.dreamhost.com"
+
+alias sl=ls
+alias ls='ls -G'  # OS-X SPECIFIC - the -G command in OS-X is for colors, in Linux it's no groups
+alias ll='ls -hl'
+alias la='ls -a'
+alias lla='ls -lah'
+alias ..='cd ..'
+alias ...='cd .. ; cd ..'
+
+alias top='top -o cpu' # os x
+
+alias systail='tail -f /var/log/system.log'
+alias df='df -h' # Show disk usage
+alias du='du -hcs *'
+
+alias untar="tar xvzf"
+
+alias pgstart="sudo su postgres -c 'pg_ctl -D /Users/DB/postgresql -l /Users/DB/postgresql/logfile start'"
+alias pgstop="sudo su postgres -c 'pg_ctl -D /Users/DB/postgresql stop -m fast'"
+alias pgstatus="sudo su postgres -c 'pg_ctl status -D /Users/DB/postgresql'"
+
+alias mysqlstart='sudo /opt/local/bin/mysqld_safe5 &'
+alias mysqlstop='/opt/local/bin/mysqladmin5 -u naveg shutdown'
+
+alias update-eggs='sudo yolk -U | cut -d " " -f 2 | xargs sudo pip install --upgrade'
+
+alias reloadbash='source ~/.bash_profile'
+alias colorslist="set | egrep 'COLOR_\w*'"  # lists all the colors

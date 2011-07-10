@@ -3,41 +3,78 @@ Xft*antialias: true
 Xft*rgba: rgb
 Xft*hinting: full
 
-! Thanks, Randy! http://rsontech.net/dotfiles/.Xdefaults
+!xoria256
 !black
-*color0:  #222222
-*color8:  #454545
+*color0          : #121212
+*color8          : #121212
 
 !red
-*color1:  #8E5C4E
-*color9:  #CC896D
+*color1          : #df8787
+*color9          : #df8787
 
 !green
-*color2:  #6C7E55
-*color10: #C4DF90
+*color2          : #afdf87
+*color10         : #afdf87
 
-!yellow
-*color3:  #B89F63
-*color11: #FFE080
+!brown/yellow
+*color3          : #dfdf87
+*color11         : #dfdf87
 
 !blue
-*color4:  #4682b4
-*color12: #6495ed
+*color4          : #87afdf
+*color12         : #87afdf
 
 !magenta
-*color5:  #956D9D
-*color13: #C18FCB
+*color5          : #dfafdf
+*color13         : #dfafdf
 
 !cyan
-*color6:  #4c8ea1
-*color14: #6bc1d0
+*color6          : #afafdf
+*color14         : #afafdf
 
 !white
-*color7:  #cccccc
-*color15: #ffffff
+*color7          : #eeeeee
+*color15         : #eeeeee
 
-*background: #000000
-*foreground:  #cccccc
+!styles
+*colorBD         : #dfafdf
+*colorUL         : #dfdfaf
+
+!! Thanks, Randy! http://rsontech.net/dotfiles/.Xdefaults
+!!black
+!*color0:  #222222
+!*color8:  #454545
+!
+!!red
+!*color1:  #8E5C4E
+!*color9:  #CC896D
+!
+!!green
+!*color2:  #6C7E55
+!*color10: #C4DF90
+!
+!!yellow
+!*color3:  #B89F63
+!*color11: #FFE080
+!
+!!blue
+!*color4:  #4682b4
+!*color12: #6495ed
+!
+!!magenta
+!*color5:  #956D9D
+!*color13: #C18FCB
+!
+!!cyan
+!*color6:  #4c8ea1
+!*color14: #6bc1d0
+!
+!!white
+!*color7:  #cccccc
+!*color15: #ffffff
+!
+!*background: #000000
+!*foreground:  #cccccc
 
 !! IR_BLACK
 !*color0: #000000
