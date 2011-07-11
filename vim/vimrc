@@ -2,6 +2,7 @@ au BufNewFile,BufRead *.pde set filetype=c
 
 set backup
 set backupdir=~/.vim/tmp/
+set directory=~/.vim/tmp/
 silent! set undodir=~/.vim/tmp/
 silent! set undofile
 
@@ -98,6 +99,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'fs111/pydoc.vim'
+"Bundle 'majutsushi/tagbar'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'minibufexpl.vim'
@@ -106,13 +108,17 @@ Bundle 'taglist.vim'
 
 let g:pep8_map='<leader>8'
 
-filetype plugin indent on
-
 " TagList
 nnoremap <silent> <F8> :TlistToggle<CR>
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Close_On_Select = 1
 let Tlist_GainFocus_On_ToggleOpen = 1
+let Tlist_Show_One_File = 1
+
+"" TagBar
+"nnoremap <silent> <F8> :TagbarToggle<CR>
+"let g:tagbar_left = 1
+"let g:tagbar_autoclose = 1
 
 " Minibuf
 au BufEnter * call MyLastWindow()
@@ -124,3 +130,6 @@ function! MyLastWindow()
         endif
     endif
 endfunction
+
+filetype plugin indent on
+
