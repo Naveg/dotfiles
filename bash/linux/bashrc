@@ -47,8 +47,19 @@ export LESS_TERMCAP_us=$'\e[0;36m'
 
 export TERM=xterm-256color
 
+# Aeryon
+export C2000_WINE_LOCAL=$HOME/tools/wine
+export C2000_WINE_TI_TOOLS=$HOME/tools/c2000
+export XUGGLE_HOME=/usr/local/xuggler
+export PATH=$XUGGLE_HOME/bin:$XUGGLE_HOME/lib:$PATH
+export LD_LIBRARY_PATH=$XUGGLE_HOME/lib:$LD_LIBRARY_PATH
+
 function env() {
     exec /usr/bin/env "$@" | grep -v ^LESS_TERMCAP_
+}
+function lookuperror
+{
+    grep -w "$@" /usr/include/errno.h
 }
 
 extract () {
