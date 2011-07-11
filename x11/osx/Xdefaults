@@ -36,9 +36,9 @@ Xft*hinting: full
 *color7          : #eeeeee
 *color15         : #eeeeee
 
-!styles
-*colorBD         : #dfafdf
-*colorUL         : #dfdfaf
+*background      : #1c1c1c
+*foreground      : #d0d0d0
+*cursorColor     : #ffaf00
 
 !! Thanks, Randy! http://rsontech.net/dotfiles/.Xdefaults
 !!black
@@ -128,7 +128,7 @@ Xft*hinting: full
 !*color7:    #ccccc6
 !*color15:   #f8f8f2
 
-URxvt*font: xft:Monaco:bold:size=10
+!URxvt*font: Monaco:bold:size=10
 URxvt*scrollBar: false
 URxvt*letterSpace: -1
 URxvt*geometry: 160x43

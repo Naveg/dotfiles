@@ -6,11 +6,17 @@
 [keybindings]
 [profiles]
   [[default]]
-    palette = "#222222:#8e5c4e:#6c7e55:#b89f63:#4682b4:#956d9d:#4c8ea1:#cccccc:#454545:#cc896d:#c4df90:#ffe080:#6495ed:#c18fcb:#6bc1d0:#ffffff"
+    # IR Black
+    # palette = "#222222:#8e5c4e:#6c7e55:#b89f63:#4682b4:#956d9d:#4c8ea1:#cccccc:#454545:#cc896d:#c4df90:#ffe080:#6495ed:#c18fcb:#6bc1d0:#ffffff"
+    # xoria256
+    palette = "#121212:#df8787:#afdf87:#dfdf87:#87afdf:#dfafdf:#afafdf:#eeeee:#121212:#df8787:#afdf87:#dfdf87:#87afdf:#dfafdf:#afafdf:#eeeeeee"
     scrollback_lines = 5000
     scrollbar_position = hidden
     cursor_color = "#e1e1e1"
-    foreground_color = "#ffffff"
+    # foreground_color = "#ffffff"
+    foreground_color = "#d0d0d0"
+    background_color = "#1c1c1c"
+    cursor_color = "#ffaf00"
     scroll_on_output = False
     cursor_blink = False
     scrollback_infinite = True
