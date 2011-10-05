@@ -47,12 +47,12 @@ export LESS_TERMCAP_us=$'\e[0;36m'
 
 export TERM=xterm-256color
 
-# Aeryon
-export C2000_WINE_LOCAL=$HOME/tools/wine
-export C2000_WINE_TI_TOOLS=$HOME/tools/c2000
-export XUGGLE_HOME=/usr/local/xuggler
-export PATH=$XUGGLE_HOME/bin:$XUGGLE_HOME/lib:$PATH
-export LD_LIBRARY_PATH=$XUGGLE_HOME/lib:$LD_LIBRARY_PATH
+# ROS
+export ROS_ROOT=/opt/ros/electric/ros
+export PATH=${ROS_ROOT}/bin:${PATH}
+export PYTHONPATH=${ROS_ROOT}/core/roslib/src:${PYTHONPATH}
+export ROS_PACKAGE_PATH=/opt/ros/electric/stacks:/home/naveg/me597/ROS_packages
+if [ ! "$ROS_MASTER_URI" ] ; then export ROS_MASTER_URI=http://localhost:11311 ; fi
 
 function env() {
     exec /usr/bin/env "$@" | grep -v ^LESS_TERMCAP_
@@ -89,7 +89,11 @@ bind "set completion-ignore-case on"
 bind "set bell-style none"
 bind "set show-all-if-ambiguous On"
 
-export PS1="\[${COLOR_PURPLE}\][\h]\[${COLOR_GREEN}\][\W] > \[${COLOR_NC}\]"  # Primary prompt with only a path
+if [ -n "$SSH_CLIENT" ]; then
+    export PS1="\[${COLOR_RED}\][\h]\[${COLOR_GREEN}\][\W] > \[${COLOR_NC}\]"  # Primary prompt with only a path
+else
+    export PS1="\[${COLOR_PURPLE}\][\h]\[${COLOR_GREEN}\][\W] > \[${COLOR_NC}\]"  # Primary prompt with only a path
+fi
 
 if [ -f ~/.bash_alias ]; then
     . ~/.bash_alias
