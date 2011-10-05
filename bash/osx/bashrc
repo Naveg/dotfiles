@@ -40,7 +40,12 @@ if [ -f /usr/local/etc/bash_completion ]; then
     . /usr/local/etc/bash_completion
 fi
 
-export PS1="\[${COLOR_PURPLE}\][\h]\[${COLOR_GREEN}\][\W] > \[${COLOR_NC}\]"  # Primary prompt with only a path
+if [ -n "$SSH_CLIENT" ]; then
+    export PS1="\[${COLOR_RED}\][\h]\[${COLOR_GREEN}\][\W] > \[${COLOR_NC}\]"  # Primary prompt with only a path
+else
+    export PS1="\[${COLOR_PURPLE}\][\h]\[${COLOR_GREEN}\][\W] > \[${COLOR_NC}\]"  # Primary prompt with only a path
+fi
+
 export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*} ${PWD}"; echo -ne "\007"'  # user@host path
 
 export PS2='> '    # Secondary prompt
