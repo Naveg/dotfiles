@@ -59,5 +59,7 @@ export GIT_EDITOR='vim'
 if [ -d ~/bin ]; then
     export PATH=:~/bin:$PATH
 fi
+export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
+export PYTHONPATH="/Users/naveg/projects/fastdispense/software/FastDispense:$PYTHONPATH"
 
 source ~/.bash_alias
