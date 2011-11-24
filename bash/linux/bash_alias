@@ -31,6 +31,6 @@ alias untar="tar xvzf"
 # ssh servers
 alias dhost="ssh naveg@jubilee.dreamhost.com"
 alias paprika="ssh -X naveg@paprika.evangoldenberg.com"
-alias cilantro="ssh -X naveg@cilantro.evangoldenberg.com"
+alias cilantro="ssh -X -p 223 naveg@cilantro.evangoldenberg.com"
 alias dtunnel="ssh -v -N -D 8080 jubilee.dreamhost.com"
 
