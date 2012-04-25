@@ -1,15 +1,14 @@
-" File types
-au BufNewFile,BufRead *.pde set filetype=c
+" leader map
+let mapleader=","
 
+" backups, temp files, undo history
 set nobackup
 set nowb
 set noswapfile
 silent! set undodir=~/.vim/tmp/
 silent! set undofile
 
-set backspace=2
-set textwidth=79
-set colorcolumn=85
+set backspace=indent,eol,start
 set formatoptions=tcrnq1
 set fileformats=unix,dos,mac
 set iskeyword+=_,$,@,%,#
@@ -25,12 +24,15 @@ set visualbell
 set wildmenu
 set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,
             \*.jpg,*.gif,*.png
-set wildmode=list:longest
+set wildmode=full
 
 set hlsearch
 set incsearch
 set showmatch
 set matchtime=5
+map N Nzz
+map n nzz
+nnoremap <leader><space> :nohlsearch<cr>
 
 set nostartofline
 set vb t_vb=
@@ -115,8 +117,10 @@ Bundle 'FuzzyFinder'
 Bundle 'minibufexpl.vim'
 Bundle 'pep8'
 Bundle 'taglist.vim'
+Bundle 'wincent/Command-T'
 
 let g:pep8_map='<leader>8'
+map <leader>f :CommandT<CR>
 
 " TagList
 nnoremap <silent> <F8> :TlistToggle<CR>
@@ -142,4 +146,7 @@ function! MyLastWindow()
 endfunction
 
 filetype plugin indent on
+
+" File types
+autocmd BufNewFile,BufRead *.pde set filetype=cpp
 

@@ -27,3 +27,5 @@ alias colorslist="set | egrep 'COLOR_\w*'"  # lists all the colors
 
 alias pear="php /usr/lib/php/pear/pearcmd.php" 
 alias pecl="php /usr/lib/php/pear/peclcmd.php" 
+
+alias latexmk="latexmk -f -pdf -pvc"
