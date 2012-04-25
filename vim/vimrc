@@ -79,7 +79,6 @@ set foldlevel=99
 
 set t_Co=256
 set background=dark
-colorscheme xoria256-mod
 syntax on
 
 inoremap <F1> <ESC>
@@ -118,6 +117,7 @@ Bundle 'minibufexpl.vim'
 Bundle 'pep8'
 Bundle 'taglist.vim'
 Bundle 'wincent/Command-T'
+Bundle 'altercation/vim-colors-solarized'
 
 let g:pep8_map='<leader>8'
 map <leader>f :CommandT<CR>
@@ -150,3 +150,5 @@ filetype plugin indent on
 " File types
 autocmd BufNewFile,BufRead *.pde set filetype=cpp
 
+"colorscheme xoria256-mod
+colorscheme solarized
