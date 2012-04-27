@@ -1,6 +1,8 @@
 " leader map
 let mapleader=","
 
+set encoding=utf-8
+
 " backups, temp files, undo history
 set nobackup
 set nowb
@@ -139,6 +141,9 @@ function! MyLastWindow()
         endif
     endif
 endfunction
+
+" Powerbar
+let g:Powerline_symbols = 'fancy'
 
 filetype plugin indent on
 
