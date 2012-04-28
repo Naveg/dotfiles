@@ -8,9 +8,6 @@
 # Set the path to Oh My Zsh.
 export OMZ="$HOME/.oh-my-zsh"
 
-# Set the key mapping style to 'emacs' or 'vi'.
-zstyle ':omz:module:editor' keymap 'vi'
-
 # Auto convert .... to ../..
 zstyle ':omz:module:editor' dot-expansion 'yes'
 
@@ -43,3 +40,17 @@ source "$OMZ/init.zsh"
 
 # Customize to your needs...
 
+bindkey '^[^[[D' backward-word
+bindkey '^[^[[C' forward-word
+bindkey '^[[5D' beginning-of-line
+bindkey '^[[5C' end-of-line
+bindkey '^[[3~' delete-char
+bindkey '^[^N' newtab
+bindkey '^?' backward-delete-char
+
+if $(grc &>/dev/null)
+then
+  source `brew --prefix`/etc/grc.bashrc
+fi
+alias pubkey="more ~/.ssh/id_dsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
+alias reload!='. ~/.zshrc'
