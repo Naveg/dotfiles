@@ -54,3 +54,5 @@ then
 fi
 alias pubkey="more ~/.ssh/id_dsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 alias reload!='. ~/.zshrc'
+
+export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
