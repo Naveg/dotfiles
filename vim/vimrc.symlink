@@ -103,6 +103,7 @@ set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
 set wildignore+=*.spl                            " compiled spelling word lists
 set wildignore+=*.sw?                            " Vim swap files
 set wildignore+=*.DS_Store                       " OSX bullshit
+set wildignore+=*.class                          " Java
 
 set wildignore+=*.luac                           " Lua byte code
 
@@ -137,12 +138,12 @@ set statusline=%f%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 " Tabs, spaces, wrapping {{{
 
 set tabstop=8
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set autoindent
 set smarttab
-set formatoptions=tcqrn1
+set formatoptions=tqrn1
 set colorcolumn=+1
 
 " }}}
@@ -439,6 +440,12 @@ augroup ft_vim
     au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
 augroup END
 
+" }}}
+" Text {{{
+augroup ft_text
+    au!
+    au FileType text setlocal textwidth=80
+augroup END
 " }}}
 
 " }}}
