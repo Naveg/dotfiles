@@ -61,3 +61,5 @@ alias pubkey="more ~/.ssh/id_dsa.pub | pbcopy | echo '=> Public key copied to pa
 alias reload!='. ~/.zshrc'
 
 export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
+export PATH="/usr/local/share/python:$PATH"
+export NODE_PATH="/usr/local/lib/node_modules:$NODE_PATH" 

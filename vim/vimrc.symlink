@@ -25,7 +25,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'edsono/vim-matchit'
 Bundle 'jpalardy/vim-slime'
 Bundle 'vim-scripts/rainbow_parentheses.vim'
-Bundle 'taglist.vim'
+Bundle 'majutsushi/tagbar'
 Bundle 'wincent/Command-T'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'Lokaltog/vim-powerline'
@@ -92,6 +92,9 @@ nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
 " }}}
+" Tags {{{
+set tags=~/.tags
+" }}}
 " Wildmenu {{{
 set wildmenu
 set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,
@@ -107,10 +110,11 @@ set wildignore+=*.class                          " Java
 
 set wildignore+=*.luac                           " Lua byte code
 
-set wildignore+=migrations                       " Django migrations
 set wildignore+=*.pyc                            " Python byte code
 
 set wildignore+=*.orig                           " Merge resolution files
+set wildignore+=bin/*
+set wildignore+=build/*
 set wildmode=full
 
 " }}}
@@ -191,10 +195,6 @@ command! -bang WQ wq<bang>
 
 "}}}
 " Searching and movement {{{
-
-" Use sane regexes.
-nnoremap / /\v
-vnoremap / /\v
 
 set ignorecase
 set smartcase
@@ -315,55 +315,6 @@ augroup ft_css
 augroup END
 
 " }}}
-" Django {{{
-
-augroup ft_django
-    au!
-
-    au BufNewFile,BufRead urls.py           setlocal nowrap
-    au BufNewFile,BufRead urls.py           normal! zR
-    au BufNewFile,BufRead dashboard.py      normal! zR
-    au BufNewFile,BufRead local_settings.py normal! zR
-
-    au BufNewFile,BufRead admin.py     setlocal filetype=python.django
-    au BufNewFile,BufRead urls.py      setlocal filetype=python.django
-    au BufNewFile,BufRead models.py    setlocal filetype=python.django
-    au BufNewFile,BufRead views.py     setlocal filetype=python.django
-    au BufNewFile,BufRead settings.py  setlocal filetype=python.django
-    au BufNewFile,BufRead settings.py  setlocal foldmethod=marker
-    au BufNewFile,BufRead forms.py     setlocal filetype=python.django
-    au BufNewFile,BufRead common_settings.py  setlocal filetype=python.django
-    au BufNewFile,BufRead common_settings.py  setlocal foldmethod=marker
-augroup END
-
-" }}}
-" HTML and HTMLDjango {{{
-
-let g:html_indent_tags = ['p', 'li']
-
-augroup ft_html
-    au!
-
-    au BufNewFile,BufRead *.html setlocal filetype=htmldjango
-    au FileType html,jinja,htmldjango setlocal foldmethod=manual
-
-    " Use <localleader>f to fold the current tag.
-    au FileType html,jinja,htmldjango nnoremap <buffer> <localleader>f Vatzf
-
-    " Use <localleader>t to fold the current templatetag.
-    au FileType html,jinja,htmldjango nmap <buffer> <localleader>t viikojozf
-
-    " Indent tag
-    au FileType html,jinja,htmldjango nnoremap <buffer> <localleader>= Vat=
-
-    " Django tags
-    au FileType jinja,htmldjango inoremap <buffer> <c-t> {%<space><space>%}<left><left><left>
-
-    " Django variables
-    au FileType jinja,htmldjango inoremap <buffer> <c-f> {{<space><space>}}<left><left><left>
-augroup END
-
-" }}}
 " Java {{{
 
 augroup ft_java
@@ -471,8 +422,6 @@ xmap <leader>c <Plug>Commentary
 
 augroup plugin_commentary
     au!
-    au FileType htmldjango setlocal commentstring={#\ %s\ #}
-    au FileType clojurescript setlocal commentstring=;\ %s
 augroup END
 
 " }}}
@@ -590,6 +539,11 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:SuperTabLongestHighlight = 1
 
 "}}}
+" TagBar {{{
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_autoclose = 1
+let g:tagbar_autofocus = 1
+" }}}
 
 " }}}
 
