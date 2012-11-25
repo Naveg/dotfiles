@@ -31,7 +31,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'sjl/clam.vim'
 Bundle 'tpope/vim-commentary'
-Bundle 'klen/python-mode'
+"Bundle 'klen/python-mode'
 Bundle 'duff/vim-scratch'
 Bundle 'tpope/vim-fugitive'
 
