@@ -17,7 +17,7 @@ fi
 # Editors
 #
 
-export EDITOR='nano'
+export EDITOR='vim'
 export VISUAL='nano'
 export PAGER='less'
 
@@ -43,6 +43,8 @@ typeset -gU cdpath fpath mailpath path
 # Set the list of directories that Zsh searches for programs.
 path=(
   /usr/local/{bin,sbin}
+  /usr/local/share/npm/bin
+  /usr/local/share/python
   $path
 )
 
