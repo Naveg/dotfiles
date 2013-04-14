@@ -34,6 +34,7 @@ Bundle 'duff/vim-scratch'
 Bundle 'tpope/vim-fugitive'
 Bundle 'vim-scripts/vim-coffee-script'
 Bundle 'derekwyatt/vim-scala'
+Bundle 'godlygeek/tabular'
 
 filetype plugin indent on
 set nocompatible
@@ -215,6 +216,11 @@ noremap <leader>v <C-w>v
 "}}}
 
 " Filetype-specific {{{
+
+augroup ft_python
+  au!
+  autocmd FileType python setlocal shiftwidth=4
+augroup END
 
 " C {{{
 
