@@ -1,7 +1,7 @@
 " .vimrc
 " Author: Evan Goldenberg
 
-" Vundle {{{
+" Vundle
 
 filetype off
 
@@ -11,7 +11,6 @@ endif
 
 set runtimepath+=~/.vim/bundle/vundle/
 call vundle#rc()
-
 
 Bundle 'gmarik/vundle'
 Bundle 'msanders/snipmate.vim'
@@ -41,8 +40,7 @@ Bundle 'nsf/gocode', {'rtp': 'vim/'}
 filetype plugin indent on
 set nocompatible
 
-" }}}
-" Vim Options {{{
+" Vim Options
 
 set encoding=utf-8
 
@@ -94,11 +92,10 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
-" }}}
-" Tags {{{
+" Tags
 set tags=~/.tags
-" }}}
-" Wildmenu {{{
+
+" Wildmenu
 set wildmenu
 set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,
             \*.jpg,*.gif,*.png
@@ -120,30 +117,13 @@ set wildignore+=bin/*
 set wildignore+=build/*
 set wildmode=full
 
-" }}}
-" Appearance {{{
+" Appearance
 set t_Co=256
 set background=dark
-"colorscheme xoria256-mod
 colorscheme solarized
 syntax on
-set statusline=%f%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
-"              | | | | |  |   |      |  |     |    |
-"              | | | | |  |   |      |  |     |    + current column
-"              | | | | |  |   |      |  |     +-- current line
-"              | | | | |  |   |      |  +-- current % into file
-"              | | | | |  |   |      +-- current syntax in square brackets
-"              | | | | |  |   +-- current fileformat
-"              | | | | |  +-- number of lines
-"              | | | | +-- preview flag in square brackets
-"              | | | +-- help flag in square brackets
-"              | | +-- readonly flag in square brackets
-"              | +-- rodified flag in square brackets
-"              +-- full path to file in the buffer
 
-" }}}
-" Tabs, spaces, wrapping {{{
-
+" Tabs, spaces, wrapping
 set tabstop=8
 set shiftwidth=2
 set softtabstop=2
@@ -153,23 +133,16 @@ set smarttab
 set formatoptions=tqrn1
 set colorcolumn=+1
 
-" }}}
-" Backups {{{
+" Backups
+set undodir=~/.vim/tmp/undo//
+set backupdir=~/.vim/tmp/backup//
+set directory=~/.vim/tmp/swap//
+set backup
+set noswapfile
 
-set undodir=~/.vim/tmp/undo//     " undo files
-set backupdir=~/.vim/tmp/backup// " backups
-set directory=~/.vim/tmp/swap//   " swap files
-set backup                        " enable backups
-set noswapfile                    " It's 2012, Vim.
-
-" }}}
-" Leader {{{
-
+" Leader
 let mapleader = ","
 let maplocalleader = "\\"
-
-" }}}
-" Mappings {{{
 
 " System clipboard
 noremap <leader>y "*y
@@ -185,10 +158,7 @@ nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
 " Sudo to write
 cnoremap w!! w !sudo tee % >/dev/null
 
-
-"}}}
 " Searching and movement {{{
-
 set ignorecase
 set smartcase
 set incsearch
@@ -215,37 +185,28 @@ noremap <C-l> <C-w>l
 
 noremap <leader>v <C-w>v
 
-"}}}
-
-" Filetype-specific {{{
-
+" Python
 augroup ft_python
   au!
   autocmd FileType python setlocal shiftwidth=4
 augroup END
 
-" C {{{
-
+" C
 augroup ft_c
     au!
     au FileType c setlocal foldmethod=syntax
 augroup END
 
-" }}}
-" Arduino {{{
+" Arduino
 augroup ft_arduino
     au!
-
     autocmd BufNewFile,BufRead *.pde set filetype=cpp
 augroup END
-" }}}
-" CSS and LessCSS {{{
 
+" CSS and LessCSS
 augroup ft_css
     au!
-
     au BufNewFile,BufRead *.less setlocal filetype=less
-
     au Filetype less,css setlocal foldmethod=marker
     au Filetype less,css setlocal foldmarker={,}
     au Filetype less,css setlocal omnifunc=csscomplete#CompleteCSS
@@ -277,22 +238,16 @@ augroup ft_css
     au BufNewFile,BufRead *.less,*.css inoremap <buffer> {<cr> {}<left><cr><space><space><space><space>.<cr><esc>kA<bs>
 augroup END
 
-" }}}
-" Java {{{
-
+" Java
 augroup ft_java
     au!
-
     au FileType java setlocal foldmethod=marker
     au FileType java setlocal foldmarker={,}
 augroup END
 
-" }}}
-" Javascript {{{
-
+" Javascript
 augroup ft_javascript
     au!
-
     au FileType javascript setlocal foldmethod=marker
     au FileType javascript setlocal foldmarker={,}
 
@@ -301,9 +256,7 @@ augroup ft_javascript
     au Filetype javascript inoremap <buffer> {<cr> {}<left><cr><space><space><space><space>.<cr><esc>kA<bs>
 augroup END
 
-" }}}
-" Markdown {{{
-
+" Markdown
 augroup ft_markdown
     au!
 
@@ -315,66 +268,48 @@ augroup ft_markdown
     au Filetype markdown nnoremap <buffer> <localleader>3 I### <ESC>
 augroup END
 
-" }}}
-" QuickFix {{{
-
+" QuickFix
 augroup ft_quickfix
     au!
     au Filetype qf setlocal colorcolumn=0 nolist nocursorline nowrap tw=0
 augroup END
 
-" }}}
-" ReStructuredText {{{
-
+" ReStructuredText
 augroup ft_rest
     au!
-
     au Filetype rst nnoremap <buffer> <localleader>1 yypVr=
     au Filetype rst nnoremap <buffer> <localleader>2 yypVr-
     au Filetype rst nnoremap <buffer> <localleader>3 yypVr~
     au Filetype rst nnoremap <buffer> <localleader>4 yypVr`
 augroup END
 
-" }}}
-" Ruby {{{
-
+" Ruby
 augroup ft_ruby
     au!
     au Filetype ruby setlocal foldmethod=syntax
 augroup END
 
-" }}}
-" Vim {{{
-
+" Vim
 augroup ft_vim
     au!
-
     au FileType vim setlocal foldmethod=marker
     au FileType help setlocal textwidth=78
     au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
 augroup END
 
-" }}}
-" Text {{{
+" Text
 augroup ft_text
     au!
     au FileType text setlocal textwidth=80
 augroup END
-" }}}
 
-" }}}
-" Plugin settings {{{
-
-" Clam {{{
-
+" Clam
 nnoremap ! :Clam<space>
 vnoremap ! :ClamVisual<space>
 let g:clam_autoreturn = 1
 let g:clam_debug = 1
 
-" }}}
-" Commentary {{{
-
+" Commentary
 nmap <leader>c <Plug>CommentaryLine
 xmap <leader>c <Plug>Commentary
 
@@ -382,9 +317,7 @@ augroup plugin_commentary
     au!
 augroup END
 
-" }}}
-" Fugitive {{{
-
+" Fugitive
 nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gw :Gwrite<cr>
@@ -398,19 +331,15 @@ nnoremap <leader>gl :Shell git gl -18<cr>:wincmd \|<cr>
 
 augroup ft_fugitive
     au!
-
     au BufNewFile,BufRead .git/index setlocal nolist
 augroup END
 
-" }}}
-" NERD Tree {{{
-
+" NERD Tree
 noremap  <F2> :NERDTreeToggle<cr>
 inoremap <F2> <esc>:NERDTreeToggle<cr>
 
 augroup ps_nerdtree
     au!
-
     au Filetype nerdtree setlocal nolist
     au Filetype nerdtree nnoremap <buffer> K :q<cr>
 augroup END
@@ -423,16 +352,11 @@ let NERDTreeIgnore = ['.vim$', '\~$', '.*\.pyc$', 'pip-log\.txt$', 'whoosh_index
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
-" }}}
-" Powerline {{{
-
+" Powerline
 let g:Powerline_symbols = 'fancy'
 let g:Powerline_cache_enabled = 1
-" let g:Powerline_colorscheme = 'badwolf'
 
-" }}}
-" Scratch {{{
-
+" Scratch
 command! ScratchToggle call ScratchToggle()
 
 function! ScratchToggle()
@@ -447,18 +371,12 @@ endfunction
 
 nnoremap <silent> <leader><tab> :ScratchToggle<cr>
 
-" }}}
-" Supertab {{{
-
+" Supertab
 let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:SuperTabLongestHighlight = 1
 
-"}}}
-" TagBar {{{
+" TagBar
 nmap <F8> :TagbarToggle<CR>
 let g:tagbar_autoclose = 1
 let g:tagbar_autofocus = 1
-" }}}
-
-" }}}
 
