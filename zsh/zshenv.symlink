@@ -47,6 +47,7 @@ path=(
   /usr/local/share/npm/bin
   /usr/local/share/python
   /usr/local/Cellar/ruby/2.0.0-p0/bin
+  /usr/local/Cellar/go/1.0.3/bin
   $path
 )
 

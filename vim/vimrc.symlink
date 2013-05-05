@@ -35,6 +35,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'vim-scripts/vim-coffee-script'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'godlygeek/tabular'
+Bundle 'jnwhiteh/vim-golang'
+Bundle 'nsf/gocode', {'rtp': 'vim/'}
 
 filetype plugin indent on
 set nocompatible
