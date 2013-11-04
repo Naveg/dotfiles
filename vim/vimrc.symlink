@@ -188,7 +188,7 @@ noremap <leader>v <C-w>v
 " Python
 augroup ft_python
   au!
-  autocmd FileType python setlocal shiftwidth=4
+  autocmd FileType python setlocal shiftwidth=2
 augroup END
 
 " C
@@ -372,8 +372,13 @@ endfunction
 nnoremap <silent> <leader><tab> :ScratchToggle<cr>
 
 " Supertab
-let g:SuperTabDefaultCompletionType = "<c-n>"
-let g:SuperTabLongestHighlight = 1
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+let g:SuperTabMappingForward = "<nul>"
+let g:SuperTabMappingBackward = "<s-c-space>"
+let g:SuperTabMappingTabLiteral = "<tab>"
+let g:SuperTabLongestHighlight = 1"
+set completeopt=longest,menuone
 
 " TagBar
 nmap <F8> :TagbarToggle<CR>

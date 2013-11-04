@@ -1,31 +1,38 @@
 [user]
-    name = Evan Goldenberg
-    email = evangoldenberg@gmail.com
+  name = Evan Goldenberg
+  email = evangoldenberg@gmail.com
 
 [color]
-    ui = auto
-    diff = auto
-    status = auto
-    branch = auto
-    interactive = auto
+  ui = auto
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
 
 [push]
-    default = tracking
+  default = tracking
 
 [alias]
-    st = status -s
-    co = checkout
-    ci = commit
+  st = status -s
+  co = checkout
+  ci = commit
 
-    f = "!git ls-files | grep -i"
-    pull = pull --ff-only
+  f = "!git ls-files | grep -i"
+  pull = pull --ff-only
 
-    grep = "!f() { A=$(pwd) && TOPLEVEL=$(git rev-parse --show-toplevel) && cd $TOPLEVEL && git grep --full-name -In $1 | xargs -I{} echo $TOPLEVEL/{} && cd $A; }; f"
+  grep = "!f() { A=$(pwd) && TOPLEVEL=$(git rev-parse --show-toplevel) && cd $TOPLEVEL && git grep --full-name -In $1 | xargs -I{} echo $TOPLEVEL/{} && cd $A; }; f"
 
-    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
 
 [core]
-    excludesfile = /Users/naveg/.gitignore
-    editor = vim
-    autocrlf = false
+  excludesfile = /Users/naveg/.gitignore
+  editor = vim
+  autocrlf = false
+
+[difftool "ks"]
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+
+[mergetool "ks"]
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
