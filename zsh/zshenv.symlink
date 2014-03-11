@@ -22,6 +22,11 @@ export VISUAL='nano'
 export PAGER='less'
 
 #
+# Compilers
+#
+export ARCHFLAGS='-arch i386 -arch x86_64'
+
+#
 # Language
 #
 
@@ -45,7 +50,7 @@ path=(
   ~/bin
   /usr/local/{bin,sbin}
   /usr/local/share/npm/bin
-  /usr/local/share/python
+  /usr/local/texlive/2013/bin/x86_64-darwin
   /usr/local/Cellar/ruby/2.0.0-p0/bin
   /usr/local/Cellar/go/1.0.3/bin
   /Users/naveg/dev/challenges/codejam/commandline

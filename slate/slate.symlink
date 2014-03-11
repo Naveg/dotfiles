@@ -1,0 +1,64 @@
+# Configs
+config defaultToCurrentScreen true
+config secondsBetweenRepeat 0.1
+config checkDefaultsOnLoad true
+config focusCheckWidthMax 3000
+config windowHintsShowIcons true
+config windowHintsIgnoreHiddenWindows false
+config windowHintsSpread true
+ 
+# Monitor Aliases
+alias laptop     0
+alias dell30     1
+alias dell24     2
+
+# Coordinates
+alias origin screenOriginX;screenOriginY
+alias middleX screenOriginX+screenSizeX/2
+alias middleY screenOriginY+screeNSizeY/2
+ 
+# Abstract positions
+alias full       move ${origin}  screenSizeX;screenSizeY
+alias lefthalf   move ${origin} screenSizeX/2;screenSizeY
+alias righthalf  move ${middleX};screenOriginY     screenSizeX/2;screenSizeY
+alias tophalf    move ${origin}  screenSizeX;screenSizeY/2
+alias bottomhalf move screenOriginX;${middleY} screenSizeX;screenSizeY/2
+ 
+# 1 Monitor layout
+layout 1monitor 'iTerm':MAIN_FIRST ${lefthalf} 0
+ 
+# Default Layouts
+default 3mon resolutions:${laptop};${dell30};${dell24};
+default 2mon resolutions:${laptop};${dell30};
+default 1mon resolutions:${laptop}
+
+bind esc:cmd hint
+ 
+# ======================================
+# The HYPER key
+# ======================================
+ 
+alias hyper shift;ctrl
+ 
+# Location bindings
+bind t:${hyper} ${lefthalf}
+bind n:${hyper} ${full}
+bind s:${hyper} ${righthalf}
+bind r:${hyper} throw next
+ 
+# Resize Bindings
+#bind r:${hyper} ${leftmost}
+#bind g:${hyper} ${rightmost}
+ 
+# Focus Bindings
+bind right:${hyper}    focus right
+bind left:${hyper}     focus left
+bind up:${hyper}       focus up
+bind down:${hyper}     focus down
+ 
+# App bindings
+bind x:${hyper} focus 'Xcode'
+bind g:${hyper} focus 'GitHub'
+bind m:${hyper} focus 'Mail'
+bind i:${hyper} focus 'iTerm'
+bind o:${hyper} focus 'Path Finder'
