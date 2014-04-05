@@ -13,7 +13,6 @@ set runtimepath+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'msanders/snipmate.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-markdown'
@@ -24,11 +23,10 @@ Bundle 'edsono/vim-matchit'
 Bundle 'jpalardy/vim-slime'
 Bundle 'vim-scripts/rainbow_parentheses.vim'
 Bundle 'majutsushi/tagbar'
-" Bundle 'wincent/Command-T'
+Bundle 'kien/ctrlp.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'sjl/clam.vim'
-Bundle 'tpope/vim-commentary'
 Bundle 'duff/vim-scratch'
 Bundle 'tpope/vim-fugitive'
 Bundle 'vim-scripts/vim-coffee-script'
@@ -43,10 +41,10 @@ set nocompatible
 " Vim Options
 
 set encoding=utf-8
-
 set hidden
 set showcmd
 set showmode
+set title
 
 set noerrorbells
 set visualbell
@@ -92,9 +90,6 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
-" Tags
-set tags=~/.tags
-
 " Wildmenu
 set wildmenu
 set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,
@@ -107,11 +102,8 @@ set wildignore+=*.spl                            " compiled spelling word lists
 set wildignore+=*.sw?                            " Vim swap files
 set wildignore+=*.DS_Store                       " OSX bullshit
 set wildignore+=*.class                          " Java
-
 set wildignore+=*.luac                           " Lua byte code
-
 set wildignore+=*.pyc                            " Python byte code
-
 set wildignore+=*.orig                           " Merge resolution files
 set wildignore+=bin/*
 set wildignore+=build/*
@@ -119,7 +111,7 @@ set wildmode=full
 
 " Appearance
 set t_Co=256
-set background=dark
+set background=light
 colorscheme solarized
 syntax on
 
@@ -130,18 +122,18 @@ set softtabstop=2
 set expandtab
 set autoindent
 set smarttab
-set formatoptions=tqrn1
+set formatoptions=tcqrn1
 set colorcolumn=+1
 
 " Backups
 set undodir=~/.vim/tmp/undo//
 set backupdir=~/.vim/tmp/backup//
 set directory=~/.vim/tmp/swap//
-set backup
+set nobackup
 set noswapfile
 
 " Leader
-let mapleader = ","
+let mapleader = " "
 let maplocalleader = "\\"
 
 " System clipboard
@@ -309,14 +301,6 @@ vnoremap ! :ClamVisual<space>
 let g:clam_autoreturn = 1
 let g:clam_debug = 1
 
-" Commentary
-nmap <leader>c <Plug>CommentaryLine
-xmap <leader>c <Plug>Commentary
-
-augroup plugin_commentary
-    au!
-augroup END
-
 " Fugitive
 nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gs :Gstatus<cr>
@@ -385,3 +369,5 @@ nmap <F8> :TagbarToggle<CR>
 let g:tagbar_autoclose = 1
 let g:tagbar_autofocus = 1
 
+" CtrlP
+nnoremap <leader>p :CtrlP<CR>
