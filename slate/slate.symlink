@@ -15,7 +15,7 @@ alias dell24     2
 # Coordinates
 alias origin screenOriginX;screenOriginY
 alias middleX screenOriginX+screenSizeX/2
-alias middleY screenOriginY+screeNSizeY/2
+alias middleY screenOriginY+screenSizeY/2
  
 # Abstract positions
 alias full       move ${origin}  screenSizeX;screenSizeY
@@ -41,9 +41,11 @@ bind esc:cmd hint
 alias hyper shift;ctrl
  
 # Location bindings
-bind t:${hyper} ${lefthalf}
+bind left:${hyper} ${lefthalf}
+bind right:${hyper} ${righthalf}
+bind up:${hyper} ${tophalf}
+bind down:${hyper} ${bottomhalf}
 bind n:${hyper} ${full}
-bind s:${hyper} ${righthalf}
 bind r:${hyper} throw next
  
 # Resize Bindings
