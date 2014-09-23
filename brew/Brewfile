@@ -1,0 +1,35 @@
+update
+upgrade
+
+install emacs
+install vim
+install macvim
+
+install gcc
+install wget
+install zsh
+
+install python
+install python3
+install ruby
+
+install caskroom/cask/brew-cask
+tap caskroom/versions
+
+cask install google-chrome
+cask install google-chrome-canary
+cask install iterm2
+cask install macvim
+cask install sublime-text3
+cask install dash
+cask install slate
+
+cask install alfred
+cask install spotify
+cask install spotifree
+cask install flux-beta
+cask install disk-inventory-x
+cask install evernote
+cask install vlc
+cask install skim
+cask install coconutbattery
