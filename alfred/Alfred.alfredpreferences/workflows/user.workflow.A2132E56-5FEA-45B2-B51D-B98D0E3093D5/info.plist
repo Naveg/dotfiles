@@ -1354,7 +1354,7 @@ That said, you can edit anything else within this workflow (including adding new
 				<key>script</key>
 				<string>./dashAlfredWorkflow "ember:{query}"</string>
 				<key>subtext</key>
-				<string>Search EmberJS for "{query}"</string>
+				<string>Search EmberJS and 1 other for "{query}"</string>
 				<key>title</key>
 				<string>Search EmberJS</string>
 				<key>type</key>
@@ -1615,7 +1615,7 @@ That said, you can edit anything else within this workflow (including adding new
 				<key>script</key>
 				<string>./dashAlfredWorkflow "javadoc:{query}"</string>
 				<key>subtext</key>
-				<string>Search Guava: Google Core Libraries for Java and 1 other for "{query}"</string>
+				<string>Search Guava: Google Core Libraries for Java and 2 others for "{query}"</string>
 				<key>title</key>
 				<string>Search Guava: Google Core Libraries for Java</string>
 				<key>type</key>
