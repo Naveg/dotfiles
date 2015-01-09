@@ -1,3 +1,0 @@
-[submodule "zsh/zprezto.symlink"]
-	path = zsh/zprezto.symlink
-	url = git@github.com:Naveg/prezto.git
