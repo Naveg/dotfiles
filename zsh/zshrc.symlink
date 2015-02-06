@@ -97,3 +97,7 @@ then
   source $completion
 fi
 
+alias '..'='cd ..'
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
