@@ -9,11 +9,20 @@ if !isdirectory(expand("~/.vim/bundle/vundle/.git"))
 endif
 
 set runtimepath+=~/.vim/bundle/vundle/
-call vundle#rc()
 
-Bundle 'gmarik/vundle'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'Lokaltog/vim-powerline'
+call vundle#begin()
+Plugin 'gmarik/vundle'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-sensible'
+call vundle#end()
 
 filetype plugin indent on
 set nocompatible
@@ -22,19 +31,16 @@ set nocompatible
 
 set encoding=utf-8
 set hidden
-set showcmd
 set showmode
 set title
 
 set noerrorbells
 set visualbell
 
-set backspace=indent,eol,start
 set fileformats=unix,dos,mac
 set iskeyword+=_,$,@,%,#
 
 set list
-set listchars=eol:¬,extends:❯,precedes:❮
 set showbreak=↪
 
 set splitbelow
@@ -50,12 +56,9 @@ set report=0
 
 set number
 set numberwidth=5
-set ruler
 set scrolloff=5
 set sidescrolloff=5
 set shortmess=aOstT
-
-set laststatus=2
 
 set ignorecase " case insensitive by default
 set infercase " case inferred by default
@@ -71,7 +74,6 @@ nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
 " Wildmenu
-set wildmenu
 set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,
             \*.jpg,*.gif,*.png
 set wildignore+=.hg,.git,.svn                    " Version control
@@ -100,8 +102,6 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
-set autoindent
-set smarttab
 set smartindent
 set formatoptions=tcqrn1
 set colorcolumn=+1
@@ -134,30 +134,16 @@ cnoremap w!! w !sudo tee % >/dev/null
 " Searching and movement {{{
 set ignorecase
 set smartcase
-set incsearch
 set showmatch
 set hlsearch
 set gdefault
-
-set scrolloff=3
-set sidescroll=1
-set sidescrolloff=10
 
 set virtualedit+=block
 
 set matchtime=5
 nnoremap N Nzz
 nnoremap n nzz
-nnoremap <leader><space> :nohlsearch<cr>
 
-" Easy buffer navigation
-noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
+au BufNewFile,BufRead *.go setlocal noexpandtab
 
-noremap <leader>v <C-w>v
-
-" Powerline
-let g:Powerline_symbols = 'fancy'
-let g:Powerline_cache_enabled = 1
+let g:airline_powerline_fonts = 1
