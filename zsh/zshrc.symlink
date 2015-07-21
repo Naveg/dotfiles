@@ -7,8 +7,11 @@ path=(
   $ZSH/bin
   /usr/local/{bin,sbin}
   $GOPATH/bin
+  ~/.cabal/bin
   $path
 )
+
+eval `/usr/libexec/path_helper -s`
 
 fpath=(
   $ZSH/functions
