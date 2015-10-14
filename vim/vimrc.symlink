@@ -25,6 +25,7 @@ Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'Shougo/neocomplete.vim'
 
 Plugin 'davidhalter/jedi-vim'
+Plugin 'fs111/pydoc.vim'
 
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
