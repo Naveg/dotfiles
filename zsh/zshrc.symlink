@@ -76,6 +76,7 @@ then
   source `brew --prefix`/etc/grc.bashrc
 fi
 
+export GIT_PROMPT_EXECUTABLE="haskell"
 source $ZSH/zsh/prompt/prompt.zsh
 source $ZSH/zsh/window.zsh
 
