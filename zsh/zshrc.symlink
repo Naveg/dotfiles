@@ -1,22 +1,30 @@
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
 
+path=()
+eval `/usr/libexec/path_helper -s`
+
 path=(
   ~/bin
   $ZSH/bin
-  /usr/local/{bin,sbin}
   $GOPATH/bin
   ~/.cabal/bin
   $path
 )
-
-eval `/usr/libexec/path_helper -s`
 
 fpath=(
   $ZSH/functions
   $ZSH/zsh
   $fpath
 )
+
+# Colors
+autoload colors; colors
+export LSCOLORS="exfxcxdxbxegedabagacad"
+export LS_COLORS="exfxcxdxbxegedabagacad"
+export CLICOLOR=true
+export GREP_OPTIONS='--color=auto'
+export GREP_COLOR='3;33'
 
 if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
@@ -27,32 +35,49 @@ export HOMEBREW_EDITOR='vim'
 export VISUAL='nano'
 export PAGER='less'
 
-export LSCOLORS="exfxcxdxbxegedabagacad"
-export CLICOLOR=true
-
 autoload -U $ZSH/functions/*(:t)
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-setopt NO_BG_NICE # don't nice background tasks
-setopt NO_HUP
-setopt NO_LIST_BEEP
-setopt LOCAL_OPTIONS # allow functions to have local options
-setopt LOCAL_TRAPS # allow functions to have local traps
-setopt HIST_VERIFY
-setopt SHARE_HISTORY # share history between sessions ???
-setopt EXTENDED_HISTORY # add timestamps to history
-setopt PROMPT_SUBST
-setopt CORRECT
-setopt COMPLETE_IN_WORD
-setopt IGNORE_EOF
+unsetopt BG_NICE
+unsetopt HUP
 
-setopt APPEND_HISTORY # adds history
-setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share it across sessions
-setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
+# Beeps
+unsetopt BEEP
+unsetopt LIST_BEEP
+unsetopt HIST_BEEP
+
+# History
+setopt HIST_VERIFY
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt INC_APPEND_HISTORY
+setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_REDUCE_BLANKS
+
+# Prompt
+setopt PROMPT_SUBST
+
+# Correction/Completion
+setopt CORRECT
+setopt CORRECTALL
+setopt COMPLETE_IN_WORD
+setopt LIST_AMBIGUOUS
+setopt IGNORE_EOF
+setopt AUTO_MENU
+unsetopt MENU_COMPLETE
+setopt ALWAYS_TO_END
+
+# Pushd
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
+setopt PUSHD_SILENT
 
 # don't expand aliases _before_ completion has finished
 #   like: git comm-[tab]
@@ -60,15 +85,15 @@ setopt complete_aliases
 
 zle -N newtab
 
-bindkey '^[^[[D' backward-word
-bindkey '^[^[[C' forward-word
-bindkey '^[[5D' beginning-of-line
-bindkey '^[[5C' end-of-line
-bindkey '^[[3~' delete-char
-bindkey '^[^N' newtab
-bindkey '^?' backward-delete-char
-bindkey "^[[1~" beginning-of-line
-bindkey "^[[4~" end-of-line
+bindkey "^K" kill-whole-line                      # ctrl-k
+bindkey "^R" history-incremental-search-backward  # ctrl-r
+bindkey "^A" beginning-of-line                    # ctrl-a  
+bindkey "^E" end-of-line                          # ctrl-e
+bindkey "[B" history-search-forward               # down arrow
+bindkey "[A" history-search-backward              # up arrow
+bindkey "^D" delete-char                          # ctrl-d
+bindkey "^F" forward-char                         # ctrl-f
+bindkey "^B" backward-char                        # ctrl-b
 
 # GRC colorizes nifty unix tools all over the place
 if (( $+commands[grc] )) && (( $+commands[brew] ))
@@ -80,9 +105,13 @@ export GIT_PROMPT_EXECUTABLE="haskell"
 source $ZSH/zsh/prompt/prompt.zsh
 source $ZSH/zsh/window.zsh
 
-# initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
+# Completions
+autoload -U compinit; compinit
+zmodload -i zsh/complist
+
+zstyle ':vcs_info:*' actionformats '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
+zstyle ':vcs_info:*' formats '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
+zstyle ':vcs_info:*' enable git
 
 # matches case insensitive for lowercase
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -100,10 +129,15 @@ then
   source $completion
 fi
 
-alias '..'='cd ..'
-alias -g ...='../..'
-alias -g ....='../../..'
-alias -g .....='../../../..'
+# Aliases
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias la='ls -a'
+alias ll='ls -lh'
+alias lla='ls -lah'
+alias ducks='du -hcksx * | sort -nr'
 
 # Go
 export GOPATH=~/dev/go
@@ -111,4 +145,6 @@ export GOPATH=~/dev/go
 # Python
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
