@@ -64,9 +64,7 @@ setopt HIST_REDUCE_BLANKS
 # Prompt
 setopt PROMPT_SUBST
 
-# Correction/Completion
-setopt CORRECT
-setopt CORRECTALL
+# Completion
 setopt COMPLETE_IN_WORD
 setopt LIST_AMBIGUOUS
 setopt IGNORE_EOF
@@ -139,6 +137,10 @@ alias ll='ls -lh'
 alias lla='ls -lah'
 alias ducks='du -hcksx * | sort -nr'
 
+alias pgstop='launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist'
+alias pgstart='launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist'
+alias pgrestart='pgstop; pgstart'
+
 # Go
 export GOPATH=~/dev/go
 
@@ -148,3 +150,10 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
+# Google cloud
+source '/usr/local/google-cloud-sdk/path.zsh.inc'
+source '/usr/local/google-cloud-sdk/completion.zsh.inc'
+
+# Docker
+eval "$(docker-machine env default)"
