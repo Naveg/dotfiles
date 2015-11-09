@@ -97,6 +97,6 @@ ZSH_THEME_GIT_PROMPT_AHEAD=" %{$fg[yellow]%}%{⬆%G%}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED=" %{$fg[white]%}%{◼%G%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
-PROMPT='%F{magenta}[%m]%F{green}[%1~]%f%(?:: %F{blue}⏎ %f) %F{green}❯%f%b '
+PROMPT='%F{magenta}[%m]%F{green}[%1~]%f%(?:: %F{red}⏎ %f) %F{green}❯%f%b '
 RPROMPT='$(git_super_status)'
-SPROMPT='zsh: correct %F{blue}%R%f to %F{green}%r%f [nyae]? '
+SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
