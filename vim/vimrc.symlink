@@ -37,6 +37,8 @@ Plugin 'raichoo/haskell-vim'
 Plugin 'eagletmt/neco-ghc'
 
 Plugin 'christoomey/vim-tmux-navigator'
+
+Plugin 'saltstack/salt-vim'
 call vundle#end()
 
 filetype plugin indent on

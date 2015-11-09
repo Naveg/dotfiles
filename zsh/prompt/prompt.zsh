@@ -99,4 +99,4 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 PROMPT='%F{magenta}[%m]%F{green}[%1~]%f%(?:: %F{red}⏎ %f) %F{green}❯%f%b '
 RPROMPT='$(git_super_status)'
-SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+SPROMPT='zsh: correct %F{blue}%R%f to %F{green}%r%f [nyae]? '
