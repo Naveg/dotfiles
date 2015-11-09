@@ -41,7 +41,7 @@ if [ -f /usr/local/etc/bash_completion ]; then
 fi
 
 if [ -n "$SSH_CLIENT" ]; then
-    export PS1="\[${COLOR_RED}\][\h]\[${COLOR_GREEN}\][\W] > \[${COLOR_NC}\]"  # Primary prompt with only a path
+    export PS1="\[${COLOR_BLUE}\][\h]\[${COLOR_GREEN}\][\W] > \[${COLOR_NC}\]"  # Primary prompt with only a path
 else
     export PS1="\[${COLOR_PURPLE}\][\h]\[${COLOR_GREEN}\][\W] > \[${COLOR_NC}\]"  # Primary prompt with only a path
 fi
