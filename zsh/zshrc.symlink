@@ -6,6 +6,7 @@ eval `/usr/libexec/path_helper -s`
 
 path=(
   ~/bin
+  ~/.local/bin
   $ZSH/bin
   $GOPATH/bin
   ~/.cabal/bin
@@ -143,5 +144,5 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 source '/usr/local/google-cloud-sdk/path.zsh.inc'
 source '/usr/local/google-cloud-sdk/completion.zsh.inc'
 
-# Docker
-eval "$(docker-machine env default)"
+# Ansible
+export ANSIBLE_HOSTS="~/.ansible/hosts"
