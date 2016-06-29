@@ -25,20 +25,16 @@ Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'mtth/scratch.vim'
 
-Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'hdima/python-syntax'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'fs111/pydoc.vim'
 
 Plugin 'pangloss/vim-javascript'
-"Plugin 'mxw/vim-jsx'
+Plugin 'mxw/vim-jsx'
 
 Plugin 'raichoo/haskell-vim'
 Plugin 'eagletmt/neco-ghc'
 
 Plugin 'christoomey/vim-tmux-navigator'
-
-Plugin 'saltstack/salt-vim'
 call vundle#end()
 
 filetype plugin indent on
