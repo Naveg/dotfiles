@@ -32,14 +32,6 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
 shopt -s checkwinsize # After each command, checks the windows size and changes lines and columns
 
-bind "set completion-ignore-case on" # note: bind used instead of sticking these in .inputrc
-bind "set bell-style none" # no bell
-bind "set show-all-if-ambiguous On" # show list automatically, without double tab
-
-if [ -f /usr/local/etc/bash_completion ]; then
-    . /usr/local/etc/bash_completion
-fi
-
 if [ -n "$SSH_CLIENT" ]; then
     export PS1="\[${COLOR_BLUE}\][\h]\[${COLOR_GREEN}\][\W] > \[${COLOR_NC}\]"  # Primary prompt with only a path
 else
@@ -60,7 +52,6 @@ if [ -d ~/bin ]; then
     export PATH=:~/bin:$PATH
 fi
 export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
-export PYTHONPATH="/Users/naveg/projects/fastdispense/software/FastDispense:$PYTHONPATH"
 
 export PATH="/usr/local/Cellar/ruby/1.9.3-p194/bin:$PATH"
 
