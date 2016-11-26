@@ -2,7 +2,7 @@
 filetype off
 
 if !isdirectory(expand("~/.vim/bundle/vundle/.git"))
-    !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+    !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/vundle
     !mkdir -p ~/.vim/tmp/undo
     !mkdir -p ~/.vim/tmp/backup
     !mkdir -p ~/.vim/tmp/swap
@@ -11,7 +11,7 @@ endif
 set runtimepath+=~/.vim/bundle/vundle/
 
 call vundle#begin()
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-sensible'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
@@ -20,7 +20,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'mtth/scratch.vim'
@@ -215,8 +215,6 @@ let g:jedi#auto_vim_configuration = 0
 let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
 let g:jedi#max_doc_height = 0
-let g:neocomplete#force_omni_input_patterns.python =
-\ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
 
 " CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -246,7 +244,7 @@ function! StrTrim(txt)
 endfunction
 
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_python_checkers = ['pyflakes']
+let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_javascript_eslint_exec = StrTrim(system('npm-which eslint'))
 
 let g:jsx_ext_required = 0

@@ -82,15 +82,20 @@ setopt PUSHD_SILENT
 
 zle -N newtab
 
+bindkey -e
 bindkey "^K" kill-whole-line                      # ctrl-k
 bindkey "^R" history-incremental-search-backward  # ctrl-r
 bindkey "^A" beginning-of-line                    # ctrl-a
 bindkey "^E" end-of-line                          # ctrl-e
+bindkey "^[[H" beginning-of-line                  # home
+bindkey "^[[F" end-of-line                        # end
 bindkey "[B" history-search-forward               # down arrow
 bindkey "[A" history-search-backward              # up arrow
 bindkey "^D" delete-char                          # ctrl-d
 bindkey "^F" forward-char                         # ctrl-f
 bindkey "^B" backward-char                        # ctrl-b
+bindkey "^[[1~" beginning-of-line
+bindkey "^[[4~" end-of-line
 
 # GRC colorizes nifty unix tools all over the place
 if (( $+commands[grc] )) && (( $+commands[brew] ))
@@ -146,3 +151,7 @@ source '/usr/local/google-cloud-sdk/completion.zsh.inc'
 
 # Ansible
 export ANSIBLE_HOSTS="~/.ansible/hosts"
+
+export HBASE_CONF_DIR=/usr/local/var/hbase/conf
+export HADOOP_OPTS='-Djava.library.path=/usr/local/var/hadoop/lib/native/osx'
+
