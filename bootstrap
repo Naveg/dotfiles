@@ -115,5 +115,14 @@ install_dotfiles () {
 
 install_dotfiles
 
+if [ ! -d ~/.fzf ]
+then
+  echo 'Installing FZF'
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install
+else
+  echo 'FZF already installed'
+fi
+
 echo ''
 echo '  All installed!'
