@@ -56,3 +56,5 @@ export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
 export PATH="/usr/local/Cellar/ruby/1.9.3-p194/bin:$PATH"
 
 source ~/.bash_alias
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

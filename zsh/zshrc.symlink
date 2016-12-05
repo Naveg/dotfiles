@@ -162,3 +162,5 @@ function tm() {
   tmux -CC new-session -A -s $1
 }
 compdef tsh=ssh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
