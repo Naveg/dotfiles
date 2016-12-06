@@ -1,34 +1,26 @@
-" Vundle
-filetype off
-
-if !isdirectory(expand("~/.vim/bundle/vundle/.git"))
-    !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/vundle
-    !mkdir -p ~/.vim/tmp/undo
-    !mkdir -p ~/.vim/tmp/backup
-    !mkdir -p ~/.vim/tmp/swap
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
-set runtimepath+=~/.vim/bundle/vundle/
-
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-sensible'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'bling/vim-airline'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'junegunn/fzf'
-Plugin 'Shougo/neocomplete.vim'
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-sensible'
+Plug 'altercation/vim-colors-solarized'
+Plug 'bling/vim-airline'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
+Plug 'Shougo/neocomplete.vim'
 
 if version >= 800
-  Plugin 'w0rp/ale'
+  Plug 'w0rp/ale'
 endif
 
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-call vundle#end()
+Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx']}
+Plug 'mxw/vim-jsx', {'for': ['javascript', 'javascript.jsx']}
+call plug#end()
 
-filetype plugin indent on
 set nocompatible
 
 " Vim Options
@@ -111,9 +103,6 @@ set formatoptions=tcqrn1
 set colorcolumn=+1
 
 " Backups
-set undodir=~/.vim/tmp/undo//
-set backupdir=~/.vim/tmp/backup//
-set directory=~/.vim/tmp/swap//
 set nobackup
 set noswapfile
 
