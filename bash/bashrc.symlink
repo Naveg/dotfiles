@@ -51,6 +51,9 @@ export GIT_EDITOR='vim'
 if [ -d ~/bin ]; then
     export PATH=:~/bin:$PATH
 fi
+if [ -d ~/.dotfiles/bin ]; then
+    export PATH=:~/.dotfiles/bin:$PATH
+fi
 export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
 
 export PATH="/usr/local/Cellar/ruby/1.9.3-p194/bin:$PATH"
@@ -65,3 +68,10 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 source ~/.bash_alias
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+fasd_cache="$HOME/.fasd-init-bash"
+if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+  fasd --init posix-alias bash-hook bash-ccomp bash-ccomp-install >| "$fasd_cache"
+fi
+source "$fasd_cache"
+unset fasd_cache
