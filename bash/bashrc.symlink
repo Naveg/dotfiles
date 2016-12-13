@@ -1,5 +1,4 @@
-export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
-export CLICOLOR=1 
+export CLICOLOR=1
 
 export COLOR_NC='\033[0m' # No Color
 export COLOR_WHITE='\033[1;37m'
