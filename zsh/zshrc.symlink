@@ -155,8 +155,8 @@ py() {
 }
 
 # Google cloud
-#source '/usr/local/google-cloud-sdk/path.zsh.inc'
-#source '/usr/local/google-cloud-sdk/completion.zsh.inc'
+source '/usr/local/google-cloud-sdk/path.zsh.inc'
+source '/usr/local/google-cloud-sdk/completion.zsh.inc'
 
 # Ansible
 export ANSIBLE_HOSTS="~/.ansible/hosts"
