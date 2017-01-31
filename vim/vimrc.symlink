@@ -13,6 +13,7 @@ Plug 'tpope/vim-surround'
 Plug 'tomtom/tcomment_vim'
 
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
+Plug 'junegunn/fzf.vim'
 Plug 'Shougo/neocomplete.vim'
 
 if version >= 800

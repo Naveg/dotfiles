@@ -172,6 +172,7 @@ function tm() {
 }
 compdef tsh=ssh
 
+export FZF_DEFAULT_OPTS="--color=light -e"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if [ $commands[fasd] ]; then # check if fasd is installed
