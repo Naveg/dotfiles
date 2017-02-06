@@ -32,7 +32,7 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 shopt -s checkwinsize # After each command, checks the windows size and changes lines and columns
 
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-    echo -e "\033]50;SetProfile=blue\a"
+    echo -e "\033]50;SetProfile=SSH\a"
     export PS1="\[${COLOR_BLUE}\][\h]\[${COLOR_GREEN}\][\W] > \[${COLOR_NC}\]"  # Primary prompt with only a path
 else
     export PS1="\[${COLOR_PURPLE}\][\h]\[${COLOR_GREEN}\][\W] > \[${COLOR_NC}\]"  # Primary prompt with only a path
