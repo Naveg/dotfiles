@@ -3,10 +3,18 @@ export ZSH=$HOME/.dotfiles
 
 # Completions
 autoload -Uz compinit
-if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
-  compinit
+if [[ "$OSTYPE" == darwin* ]]; then
+  if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+    compinit
+  else
+    compinit -C
+  fi
 else
-  compinit -C
+  if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+    compinit;
+  else
+    compinit -C;
+  fi
 fi
 
 path=()
@@ -14,29 +22,29 @@ if [ -x /usr/libexec/path_helper ]; then
   eval `/usr/libexec/path_helper -s`
 else
   path=(
-    /usr/local/sbin
-    /usr/local/bin
-    /usr/sbin
-    /usr/bin
-    /sbin
-    /bin
+  /usr/local/sbin
+  /usr/local/bin
+  /usr/sbin
+  /usr/bin
+  /sbin
+  /bin
   )
 fi
 
 path=(
-  ~/bin
-  ~/.local/bin
-  $ZSH/bin
-  $GOPATH/bin
-  ~/.cabal/bin
-  $path
+~/bin
+~/.local/bin
+$ZSH/bin
+$GOPATH/bin
+~/.cabal/bin
+$path
 )
 
 fpath=(
-  $ZSH/zsh/completions/src
-  $ZSH/functions
-  $ZSH/zsh
-  $fpath
+$ZSH/zsh/completions/src
+$ZSH/functions
+$ZSH/zsh
+$fpath
 )
 
 # Colors
@@ -199,4 +207,8 @@ if [ $commands[fasd] ]; then # check if fasd is installed
   alias v="f -e $EDITOR"
   alias sv="f -e sudo $EDITOR"
   alias o='a -e open_command'
+fi
+
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+  echo -e "\033]50;SetProfile=SSH\a"
 fi
