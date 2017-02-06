@@ -40,7 +40,7 @@ function chpwd_update_git_vars() {
 
 function update_current_git_vars() {
   unset __CURRENT_GIT_STATUS
-  local gitstatus="/Users/naveg/.dotfiles/zsh/prompt/dist/build/gitstatus/gitstatus"
+  local gitstatus="$HOME/.dotfiles/zsh/prompt/dist/build/gitstatus/gitstatus"
   _GIT_STATUS=`${gitstatus}`
   __CURRENT_GIT_STATUS=("${(@f)_GIT_STATUS}")
   GIT_BRANCH=$__CURRENT_GIT_STATUS[1]
