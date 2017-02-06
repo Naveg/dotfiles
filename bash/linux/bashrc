@@ -89,7 +89,8 @@ bind "set completion-ignore-case on"
 bind "set bell-style none"
 bind "set show-all-if-ambiguous On"
 
-if [ -n "$SSH_CLIENT" ]; then
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    echo -e "\033]50;SetProfile=SSH\a"
     export PS1="\[${COLOR_RED}\][\h]\[${COLOR_GREEN}\][\W] > \[${COLOR_NC}\]"  # Primary prompt with only a path
 else
     export PS1="\[${COLOR_PURPLE}\][\h]\[${COLOR_GREEN}\][\W] > \[${COLOR_NC}\]"  # Primary prompt with only a path
