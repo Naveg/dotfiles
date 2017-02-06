@@ -1,0 +1,3 @@
+if [ "$SHLVL" = 1 ]; then
+  echo -e "\033]50;SetProfile=Default\a"
+fi
