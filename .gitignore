@@ -4,5 +4,5 @@ vim/vim.symlink/autoload
 vim/vim.symlink/plugged
 vim/vim.symlink/tmp
 vim/vim.symlink/.netrwhist
-zsh/prompt/dist
+zsh/prompt/src/.bin/gitstatus
 .stack-work
