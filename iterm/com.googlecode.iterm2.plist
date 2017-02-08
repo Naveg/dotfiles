@@ -639,7 +639,7 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>610 327 700 622 0 0 1920 1057 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>370 288 918 512 0 0 1920 1057 </string>
+	<string>291 263 796 473 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 10 1914 1047 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
@@ -1675,13 +1675,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.92379742860794067</real>
+				<real>0.90747272968292236</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.92207002639770508</real>
+				<real>0.90536308288574219</real>
 				<key>Red Component</key>
-				<real>0.9981415867805481</real>
+				<real>0.99775755405426025</real>
 			</dict>
 			<key>Background Image Is Tiled</key>
 			<false/>
@@ -3213,7 +3213,28 @@
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Triggers</key>
-			<array/>
+			<array>
+				<dict>
+					<key>action</key>
+					<string>SetHostnameTrigger</string>
+					<key>parameter</key>
+					<string>globetrotter</string>
+					<key>partial</key>
+					<true/>
+					<key>regex</key>
+					<string>^\[globetrotter\]\[.*\]</string>
+				</dict>
+				<dict>
+					<key>action</key>
+					<string>SetHostnameTrigger</string>
+					<key>parameter</key>
+					<string>remote@\1</string>
+					<key>partial</key>
+					<true/>
+					<key>regex</key>
+					<string>^\[(.*)\]\[.*\]</string>
+				</dict>
+			</array>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
